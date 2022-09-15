@@ -1,0 +1,15 @@
+import React from 'react'
+// import logo from "../assets/winnerslogo.png";
+import loader from '../assets/loading.gif'
+
+
+const Loader = () => {
+  return (
+    <div style={{textAlign: 'center', marginTop: '250px'}}>
+        {/* <img src={logo} alt="" width='100px'style={{display: 'block', margin: 'auto'}}/> */}
+        <img src={loader} alt="loading" width='100px'style={{display: 'block', margin: 'auto'}}/>
+    </div>
+  )
+}
+
+export default Loader;
