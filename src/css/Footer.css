@@ -1,4 +1,35 @@
 .footer-container {
-    margin-top: -20px;
-    background-color: blueviolet;
+    text-align: center;
+    color: white;
+    background-color: var(--primary);
+}
+
+.footer-container .info {
+    padding: 10px 8%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.footer-container .sub {
+    padding: 20px 8%;
+    border-top: 5px solid var(--secondary);
+}
+
+.footer-container .info .info-box {
+    background-color: var(--primary);
+    transition: 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 250px;
+}
+
+.footer-container .info .info-box:hover {
+    margin-top: -30px;
+}
+
+.footer-container .info .icon{
+    font-size: 80px;
 }

@@ -1,0 +1,80 @@
+.investment-container .access {
+    background-color: var(--primary);
+    border-bottom: 5px solid var(--secondary);
+    padding: 50px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.investment-container .access a {
+    border: 2px solid var(--secondary);
+    padding: 10px 20px;
+    margin-left: 20px;
+    border-radius: 30px;
+    color: white;
+    transition: 0.5s ease-in-out;
+}
+
+.investment-container .access a:hover {
+    color: var(--primary);
+    background-color: var(--secondary);
+}
+
+.investment-container .how {
+    text-align: center;
+    padding: 10px 8%;
+    margin-top: 70px;
+}
+
+.investment-container .how .how-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 30px;
+}
+
+.investment-container .how .how-grid div {
+    transition: 0.5s ease-in-out;
+    padding: 30px;
+}
+
+.investment-container .how .how-grid div:hover {
+    background-color: var(--secondary);
+    color: var(--primary)
+}
+
+.investment-container .track {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cryptobg.jpg");
+    border-bottom: 5px solid var(--secondary);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center right;
+    background-repeat: no-repeat;
+    padding: 50px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    margin-top: 50px;
+}
+
+.investment-container .track div {
+    display: flex;
+    flex-direction: column;
+}
+
+.investment-container .track a {
+    background-color: var(--secondary);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    color: var(--primary);
+    transition: 0.5s ease-in-out;
+}
+
+.investment-container .track a:hover {
+    background-color: white;
+}

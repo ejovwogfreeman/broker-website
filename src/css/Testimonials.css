@@ -1,0 +1,33 @@
+.testimonials-container {
+    text-align: center;
+    padding: 50px 8%;
+} 
+
+.testimonials-container .img {
+    border-radius: 50%;
+}
+
+.owl-container {
+    position: relative;
+}
+
+.testimonials-container .payment {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.testimonials-container .payment h2{
+    margin-bottom: 50px;
+}
+
+.testimonials-container .cryp {
+    background-color: white;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    border: 3px solid var(--primary);
+}
+
+.testimonials-container .cryp img {
+    width: 100%;
+}

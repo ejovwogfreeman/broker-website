@@ -1,0 +1,77 @@
+.plan-container {
+    text-align: center;
+    padding: 70px 8% 0px;
+}
+
+.plan-container .h2 {
+    margin-bottom: 20px;
+}
+
+.plan-container .plan {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 50px;
+}
+
+
+.plan-container .plan .plan-box {
+    transition: 0.5s ease-in-out;
+    padding: 30px;
+    background-color: var(--primary);
+    color: white;
+    border-top: 5px solid var(--secondary);
+    border-bottom: 5px solid var(--secondary);
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.plan-container .plan .plan-box:hover {
+    background-color: var(--secondary);
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.plan-container .plan .plan-box span {
+    display: flex;
+    justify-content: space-between;
+}
+
+.plan-container .question {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--secondary);
+    margin-top: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.plan-container .question .first{
+    padding: 50px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 5px solid var(--primary);
+}
+
+.plan-container .question .first a {
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.plan-container .question .second{
+    flex: 2;
+    border-bottom: 5px solid var(--secondary);
+    background-color: var(--primary);
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

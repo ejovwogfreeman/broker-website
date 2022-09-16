@@ -6,9 +6,9 @@ nav .navbarsub-container{
     display: flex;
     justify-content: space-between; 
     padding: 10px 8%;
-    background-color: rgb(8, 5, 34);
+    background-color: var(--primary);
     color: white;
-    border-bottom: 5px solid rgb(35, 201, 216);
+    border-bottom: 5px solid var(--secondary);
 }
 
 nav .navbarsub-container div {
@@ -31,7 +31,7 @@ nav .main-nav {
     align-items: center;
     justify-content: space-between;
     padding: 0px 8%;
-    height: 60px;
+    height: 80px;
     width: 100%;
     transition: 0.8s ease-in-out;
     background-color: white;
@@ -47,7 +47,7 @@ nav .main-nav ul li {
 }
 
 nav .main-nav ul li a{
-    color: rgb(8, 5, 34);
+    color: var(--primary);
 }
 
 nav .main-nav ul .account{
@@ -75,7 +75,7 @@ nav .main-nav ul .account .auth span {
 }
 
 nav .main-nav ul .account .auth span a {
-    color: rgb(8, 5, 34);
+    color: var(--primary);
     height: fit-content; 
     padding: 5px;
     width: 100%;
@@ -85,14 +85,14 @@ nav .main-nav ul .account .auth span a {
 }
 
 nav .main-nav ul .account .auth span a:hover {
-    color: rgb(8, 5, 34);
+    color: var(--primary);
     width: 100%;
     color: white;
     background-color: rgb(11, 11, 52);
 }
 
 nav .main-nav ul .account .auth span:first-child{
-    border-bottom: 1px solid rgb(8, 5, 34);   
+    border-bottom: 1px solid var(--primary);   
 }
 
 
@@ -109,12 +109,12 @@ nav .main-nav ul .account .auth span:first-child{
 #sticky {
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
     background-color: white;
-    border-bottom: 5px solid rgb(8, 5, 34);
+    border-bottom: 5px solid var(--primary);
     position: fixed;
     top: 0px;
     height: 80px;
     z-index: 100;
-    color: rgb(8, 5, 34);
+    color: var(--primary);
     animation: 1s slidein;
 }
 
@@ -129,11 +129,11 @@ nav .main-nav ul .account .auth span:first-child{
   }
  
 #sticky a {
-    color: rgb(8, 5, 34);
+    color: var(--primary);
 }
 
 #sticky .auth {
-    border: 1px solid rgb(8, 5, 34);
+    border: 1px solid var(--primary);
 }
 
 #sticky .auth span a:hover  {

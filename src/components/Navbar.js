@@ -29,8 +29,8 @@ const Navbar = () => {
     <nav>
       <div className='navbarsub-container'>
           <div>
-              <Link to='/'><CgMail className='icon'/>ffinvestiment@company.com</Link>
-              <Link to='/' className='left'><MdCall className='icon'/>+156 999 999</Link>
+              <Link to='/'><CgMail className='icon'/>financialfreedom680@gmail.com</Link>
+              <Link to='/' className='left'><MdCall className='icon'/>+2779 985 8789</Link>
           </div>
           <div>
               <Link to='/'><AiOutlineUser className='icon'/>Login</Link>
