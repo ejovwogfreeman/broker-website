@@ -34,24 +34,8 @@ const Testimonials = () => {
                 <div>
                   <img  className="img" src= {img} style={{width: '200px', height: '200px', margin: 'auto'}} alt='graphics'/>
                   <h3>John Doe</h3>
-                  <p>Business Analyst</p>
-                  <div><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/></div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, eos quidem debitis assumenda molestiae tempora fugit totam labore qui consectetur est nihil asperiores ipsum reiciendis inventore aliquid temporibus perferendis quae tempore, laboriosam explicabo libero a! Praesentium, enim modi! Illum commodi dicta nesciunt quis quasi esse recusandae expedita, cumque quisquam itaque!
-                  </p>
-                </div> 
-                <div>
-                  <img  className="img" src= {img} style={{width: '200px', height: '200px', margin: 'auto'}} alt='graphics'/>
-                  <h3>John Doe</h3>
-                  <p>Business Analyst</p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, eos quidem debitis assumenda molestiae tempora fugit totam labore qui consectetur est nihil asperiores ipsum reiciendis inventore aliquid temporibus perferendis quae tempore, laboriosam explicabo libero a! Praesentium, enim modi! Illum commodi dicta nesciunt quis quasi esse recusandae expedita, cumque quisquam itaque!
-                  </p>
-                </div> 
-                <div>
-                  <img  className="img" src= {img} style={{width: '200px', height: '200px', margin: 'auto'}} alt='graphics'/>
-                  <h3>John Doe</h3>
-                  <p>Business Analyst</p>
+                  <strong>Business Analyst</strong>
+                  <div className='icon-cont'><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/></div>
                   <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, eos quidem debitis assumenda molestiae tempora fugit totam labore qui consectetur est nihil asperiores ipsum reiciendis inventore aliquid temporibus perferendis quae tempore, laboriosam explicabo libero a! Praesentium, enim modi! Illum commodi dicta nesciunt quis quasi esse recusandae expedita, cumque quisquam itaque!
                   </p>

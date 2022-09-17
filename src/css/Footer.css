@@ -33,3 +33,31 @@
 .footer-container .info .icon{
     font-size: 80px;
 }
+
+@media screen and (max-width: 1000px) {
+    .footer-container .info {
+        padding-right: 10px 4%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .footer-container .info .icon{
+        font-size: 50px;
+    }
+    .footer-container .info .info-box:hover {
+        margin-top: 0px;
+    }
+    .footer-container .info .info-box {
+        height: 150px;
+    }
+    .footer-container .info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .footer-container .info {
+        display: block;
+    }
+}

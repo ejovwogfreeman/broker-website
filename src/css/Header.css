@@ -40,3 +40,28 @@
 .left {
     margin-left: 20px;
 }
+
+@media screen and (max-width:1000px) {
+    .header-container {
+        padding: 10px 4%;
+   }
+}
+
+@media screen and (max-width: 800px) {
+    br {
+        display: none;
+    }
+    .header-container {
+        text-align: center;
+        height: 400px;
+    }
+    .header-container div h1 {
+        font-size: 30px;
+    }
+    .header-container div p {
+        color: white;
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+}

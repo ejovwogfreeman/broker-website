@@ -37,11 +37,16 @@
 .investment-container .how .how-grid div {
     transition: 0.5s ease-in-out;
     padding: 30px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
 }
 
 .investment-container .how .how-grid div:hover {
     background-color: var(--secondary);
-    color: var(--primary)
+    color: var(--primary);
+    border-color: var(--primary);
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
 }
 
 .investment-container .track {
@@ -77,4 +82,57 @@
 
 .investment-container .track a:hover {
     background-color: white;
+}
+
+@media screen and (max-width:1000px) {
+    .investment-container .access {
+        padding: 50px 4%;
+    }
+    .investment-container .how {
+        padding: 10px 4%;
+    }
+    .investment-container .how .how-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+    .investment-container .track{
+        padding: 50px 4%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .investment-container .access {
+        display: block;
+        text-align: center;
+    }
+    .investment-container .access div {
+        margin-top: 30px;
+    }
+    .investment-container .access a {
+        margin: 10px;
+    }
+    .investment-container .track{
+        display: block;
+        text-align: center;
+    }
+    .investment-container .track div{
+        margin-top: 20px;
+    }
+    .investment-container .track p{
+        margin-bottom: 20px;
+    }
+    .investment-container .track a {
+        width: 250px;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .investment-container .how .how-grid {
+        display: block;
+    }
+
+    .investment-container .how .how-grid div {
+        margin: 20px 0px;
+    }
 }
