@@ -50,7 +50,7 @@
 }
 
 .investment-container .track {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cryptobg.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/cryptobg.jpg");
     border-bottom: 5px solid var(--secondary);
     background-size: cover;
     background-attachment: fixed;
