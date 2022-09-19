@@ -36,7 +36,7 @@ const Investment = () => {
         <div className='track'>
             <h1>Fast-track <br /> your success</h1>
             <div>
-                <p>Register with Maxlo to start earning more</p> <br />
+                <p>Register with us to start earning more</p> <br />
                 <Link to='/'>CREATE AN ACCOUNT</Link>
             </div>
         </div>

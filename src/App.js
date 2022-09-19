@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -92,9 +93,8 @@ function App() {
           </Routes>
           <Payment/>
           <Footer/>
-        </Router>      
 
-        <Box
+          <Box
           sx={{
             "& > :not(style)": {
               m: 1,
@@ -109,6 +109,7 @@ function App() {
             <KeyboardArrowUpRoundedIcon sx={{ fontSize: 30 }} />
           </Fab>
         </Box>
+        </Router>      
       </div>
   );
 }

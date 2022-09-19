@@ -47,8 +47,8 @@ const Navbar = () => {
           <li><Link to="/about">About</Link></li>
           <li><Link to="/faqs">FAQ</Link></li>
           <li><Link to="/contact">Contact</Link></li>
-          <li className='account' >
-              <p style={{cursor: 'pointer'}} onClick={()=>{toggle()}} className='x'>Account 
+          <li className='account' style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+              <p style={{cursor: 'pointer', display: 'inline', marginBottom: '0px' }} onClick={()=>{toggle()}} className='x'>Account 
                 <span>{openButton ? <BiDownArrow className='icon'/> : <BiUpArrow className='icon'/>}</span>
               </p>
             <div className='auth' id={openButton ? 'auth' : ''}>

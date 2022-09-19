@@ -8,7 +8,7 @@ const Plan = () => {
   return (
     <div className='plan-container'>
         <h2 className='h2'>OUR AWESOME PLANS</h2>
-        <p>The site is owned by maxlo investment company. A registered company for cryptocurrency investments solution. We give a chance to new, dynamically developing ICO projects that bring huge profits in an amazing short time. Join Us by choosing one of our plans today.</p>
+        <p>The site is owned by financial freedom investment company. A registered company for cryptocurrency investments solution. We give a chance to new, dynamically developing ICO projects that bring huge profits in an amazing short time. Join Us by choosing one of our plans today.</p>
         <div className='plan'>
             <div className='plan-box'>
                 <h2>STARTER</h2>
