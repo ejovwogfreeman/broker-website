@@ -46,15 +46,16 @@ const Navbar = () => {
         </div>
         <ul>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/">About</Link></li>
-          <li><Link to="/">FAQ</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/faqs">FAQ</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
           <li className='account' >
-            <Link to='/' onClick={()=>{toggle()}} className='x'>Account 
+              <a style={{cursor: 'pointer'}} onClick={()=>{toggle()}} className='x'>Account 
                 <span>{openButton ? <BiDownArrow className='icon'/> : <BiUpArrow className='icon'/>}</span>
-              </Link>
+              </a>
             <div className='auth' id={openButton ? 'auth' : ''}>
-                <span><Link to="/">Login</Link></span>
-                <span><Link to="/">Register</Link></span>
+                <span><Link to="/login">Login</Link></span>
+                <span><Link to="/register">Register</Link></span>
             </div>
           </li>
         </ul>

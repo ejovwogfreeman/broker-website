@@ -58,6 +58,7 @@ nav .main-nav ul .account .auth {
     text-align: center;
     width: 100px;
     transition: 0.5s ease-in-out;
+    border: 1px solid var(--primary);
 }
 
 #auth {
