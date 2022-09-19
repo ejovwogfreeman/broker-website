@@ -13,7 +13,7 @@ const Muinavbar = () => {
   return (
     <div className='mobile-nav'>
         <IconButton size="large" edge="start" color="inherit" aria-label='logo' onClick={()=> setOpenDrawer(true)}>
-            <AiOutlineMenu style={{color: 'white', fontSize:'35px', backgroundColor: 'rgb(8, 5, 34)', borderRadius: '5px', padding: '3px'}}/>
+            <AiOutlineMenu style={{color: 'white', fontSize:'30px', backgroundColor: 'rgb(8, 5, 34)', borderRadius: '5px', padding: '3px'}}/>
         </IconButton>
         <Drawer anchor="bottom" open={openDrawer} onClose={()=> setOpenDrawer(false)} >
             <div className='close-icon'>
