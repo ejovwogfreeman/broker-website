@@ -6,7 +6,7 @@ import cryp4 from '../assets/cryimg4.jpg'
 
 const Payment = () => {
   return (
-    <div className='testimonials-container'>
+    <div className='testimonials-container' id='payment-container'>
         <div className='payment'>
             <h2>PAYMENT METHOD WE ACCEPT</h2>
             <div className='cryp'>

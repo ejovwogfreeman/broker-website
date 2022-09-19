@@ -1,8 +1,11 @@
 import React from 'react'
+import Background from '../components/Background'
 
 const Signin = () => {
   return (
-    <div>Signin</div>
+    <div>
+      <Background text='LOGIN'/>
+    </div>
   )
 }
 
