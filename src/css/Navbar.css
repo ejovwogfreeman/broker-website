@@ -140,6 +140,7 @@ nav .main-nav ul .account .auth span:first-child{
 
 .mobile-nav {
     display: none;
+    border-radius: 50%;
 }
 
 .div li{
@@ -174,7 +175,7 @@ nav .main-nav ul .account .auth span:first-child{
     font-size: 20px;
     width: 50px;
     height: 50px;
-    top: 4%;
+    top: 3%;
     right: 2%;
     padding: 15px;
     border-radius: 50%;

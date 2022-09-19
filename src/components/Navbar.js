@@ -41,18 +41,16 @@ const Navbar = () => {
       </div>
       <div className="main-nav" id={sticky ? 'sticky' : ''}>
         <div><Link to="/"><img src={logo} alt="" /></Link></div>
-        <div className='mui-drawer'>
-            <Muinavbar/>
-        </div>
+        <Muinavbar/>
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/faqs">FAQ</Link></li>
           <li><Link to="/contact">Contact</Link></li>
           <li className='account' >
-              <a style={{cursor: 'pointer'}} onClick={()=>{toggle()}} className='x'>Account 
+              <p style={{cursor: 'pointer'}} onClick={()=>{toggle()}} className='x'>Account 
                 <span>{openButton ? <BiDownArrow className='icon'/> : <BiUpArrow className='icon'/>}</span>
-              </a>
+              </p>
             <div className='auth' id={openButton ? 'auth' : ''}>
                 <span><Link to="/login">Login</Link></span>
                 <span><Link to="/register">Register</Link></span>
