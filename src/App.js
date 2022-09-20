@@ -16,6 +16,7 @@ import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRound
 import Navbar from './components/Navbar'
 import Payment from './components/Payment'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
     return (
       <div className="App">
         <Router>
+          <ScrollToTop/>
           <Navbar/>
           <Routes>
             <Route
