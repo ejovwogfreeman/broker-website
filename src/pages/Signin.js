@@ -54,7 +54,7 @@ const Signup = () => {
             </div>
             <button>LOGIN</button>
             <section style={{marginTop: '20px'}}>
-              <small>New here? <Link to = '/register'>Register</Link> | <Link to='/reset-password'>forgot password?</Link></small>
+              <small>New here? <Link to = '/register'>Register</Link> | <Link to='/reset-password'>Forgot password?</Link></small>
             </section>
           </form>
       </div>

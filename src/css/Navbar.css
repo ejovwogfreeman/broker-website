@@ -142,9 +142,10 @@ nav .main-nav ul .account .auth span:first-child{
     color: var(--secondary);
 }
 
-#sticky .auth {
-    border: 1px solid var(--primary);
+#sticky .auth span a {
+    border-bottom: 1px solid var(--primary);
 }
+
 
 #sticky .auth span a:hover  {
     color: white;

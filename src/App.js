@@ -17,6 +17,7 @@ import Navbar from './components/Navbar'
 import Payment from './components/Payment'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import Passwordreset from './pages/Passwordreset'
 
 function App() {
 
@@ -90,7 +91,7 @@ function App() {
             <Route
               exact
               path="/reset-password"
-              element={<Signup/>}
+              element={<Passwordreset/>}
             /> 
             <Route
               exact
