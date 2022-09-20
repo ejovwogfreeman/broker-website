@@ -33,7 +33,7 @@ const Plan = () => {
                 </div>
             </div>
             <div className='plan-box'>
-                <h2>STARTER</h2>
+                <h2>GOLD</h2>
                 <p>WEEKLY 300% FOR 1 TIMES</p>
                 <h3>$ 675000</h3>
                 <div>

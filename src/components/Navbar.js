@@ -35,8 +35,8 @@ const Navbar = () => {
               <Link to='/' className='left'><MdCall className='icon'/>+2779 985 8789</Link>
           </div>
           <div className='acc'>
-              <Link to='/'><AiOutlineUser className='icon'/>Login</Link>
-              <Link to='/' className='left'><AiOutlineUserAdd className='icon'/>Register</Link>
+              <Link to='/login'><AiOutlineUser className='icon'/>Login</Link>
+              <Link to='/register' className='left'><AiOutlineUserAdd className='icon'/>Register</Link>
           </div>
       </div>
       <div className="main-nav" id={sticky ? 'sticky' : ''}>
