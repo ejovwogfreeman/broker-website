@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Drawer, Box, Typography, IconButton } from "@mui/material"
 import { AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
-import { GrHome } from 'react-icons/gr'
+import { AiOutlineHome } from 'react-icons/ai'
 import { MdOutlineContacts } from 'react-icons/md'
 import { BsTelephone } from 'react-icons/bs'
 import { RiQuestionnaireLine } from 'react-icons/ri'
@@ -20,9 +20,9 @@ const Muinavbar = () => {
             <div className='close-icon'>
                 <AiOutlineClose onClick={()=> setOpenDrawer(false)}/>
             </div>
-            <Box p={1} width='100%' textAlign='left'>
+            <Box p={1} width='100%' textAlign='left'> 
                 <Typography variant='h6' component='div'>
-                    <li className='li x'><Link to="/" onClick={()=> setOpenDrawer(false)}><GrHome style={{marginRight: '10px'}}/>Home</Link></li>
+                    <li className='li x'><Link to="/" onClick={()=> setOpenDrawer(false)}><AiOutlineHome style={{marginRight: '10px'}}/>Home</Link></li>
                     <li className='li x'><Link to="/about" onClick={()=> setOpenDrawer(false)}><MdOutlineContacts style={{marginRight: '10px'}}/>About</Link></li>
                     <li className='li x'><Link to="/faqs" onClick={()=> setOpenDrawer(false)}><RiQuestionnaireLine style={{marginRight: '10px'}}/>FAQ</Link></li>
                     <li className='li x'><Link to="/contact" onClick={()=> setOpenDrawer(false)}><BsTelephone style={{marginRight: '10px'}}/>Contact</Link></li>
