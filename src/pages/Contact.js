@@ -26,7 +26,7 @@ const Contact = () => {
             <div>
               <h1>GET IN TOUCH</h1>
               <p>Address: <br />
-                <MdLocationOn/> 301 Park, Ring Road, London 1207, United Kingdom
+                <MdLocationOn/> 375 Raritan Center Parkway Edison, NJ 08837 United States.
               </p>
               <p>Send a Mail: <br />
                 <span><CgMail className='icon'/>financialfreedom680@gmail.com</span>
