@@ -43,8 +43,15 @@ nav .main-nav ul li {
     margin-left: 50px;
 }
 
-nav .main-nav ul li a{
+nav .main-nav ul li a,
+nav .main-nav ul li .x{
     color: var(--primary);
+    transition: 0.5s ease-in-out
+}
+
+nav .main-nav ul li a:hover,
+nav .main-nav ul li .x:hover {
+    color: var(--secondary);
 }
 
 nav .main-nav ul .account{
@@ -86,7 +93,7 @@ nav .main-nav ul .account .auth span a:hover {
     color: var(--primary);
     width: 100%;
     color: white;
-    background-color: rgb(11, 11, 52);
+    background-color: var(--primary)
 }
 
 nav .main-nav ul .account .auth span:first-child{
@@ -128,6 +135,11 @@ nav .main-nav ul .account .auth span:first-child{
  
 #sticky a {
     color: var(--primary);
+    transition: 0.5s ease-in-out;
+}
+
+#sticky a:hover {
+    color: var(--secondary);
 }
 
 #sticky .auth {
