@@ -31,8 +31,8 @@ const Navbar = () => {
     <nav>
       <div className='navbarsub-container'>
           <div>
-              <Link to='/'><CgMail className='icon'/>financialfreedom680@gmail.com</Link>
-              <Link to='/' className='left'><MdCall className='icon'/>+2779 985 8789</Link>
+              <span><CgMail className='icon'/>financialfreedom680@gmail.com</span>
+              <span className='left'><MdCall className='icon'/>+2779 985 8789</span>
           </div>
           <div className='acc'>
               <Link to='/login'><AiOutlineUser className='icon'/>Login</Link>

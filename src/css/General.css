@@ -157,6 +157,9 @@
    .general-container .body .contents{
         display: block;
     }
+    .general-container .body .contents form{
+        margin-top: 30px;
+    }
     .general-container .body .signin-form div input {
         width: 80%;
     }

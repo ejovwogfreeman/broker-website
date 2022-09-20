@@ -3,7 +3,6 @@ import Background from '../components/Background'
 import '../css/General.css'
 import { CgMail } from 'react-icons/cg';
 import { MdCall, MdLocationOn } from 'react-icons/md';
-import { Link } from 'react-router-dom';
 
 const Contact = () => {
   const [ name, setName ] = useState('')
@@ -29,10 +28,10 @@ const Contact = () => {
               <MdLocationOn/> 301 Park, Ring Road, London 1207, United Kingdom
             </p>
             <p>Send a Mail: <br />
-              <Link to='/'><CgMail className='icon'/>financialfreedom680@gmail.com</Link>
+              <span><CgMail className='icon'/>financialfreedom680@gmail.com</span>
             </p> 
             <p>Call us: <br />
-              <Link to='/'><MdCall className='icon'/>+2779 985 8789</Link>
+              <span><MdCall className='icon'/>+2779 985 8789</span>
             </p>
           </div>
           <form onSubmit={handleSubmit}>

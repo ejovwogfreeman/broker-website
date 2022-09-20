@@ -8,8 +8,8 @@ const Investment = () => {
         <div className='access'>
             <h2>GET ACCESS TO YOUR ACCOUNT</h2>
             <div>
-                <Link to='/'>SIGN IN</Link>
-                <Link to='/'>REGISTER</Link>
+                <Link to='/login'>SIGN IN</Link>
+                <Link to='/register'>REGISTER</Link>
             </div>
         </div>
         <div className='how'>
