@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Background from '../components/Background'
 import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
 import '../css/General.css'
+import { Link } from 'react-router-dom'
 
 const Signup = () => {
 
@@ -52,6 +53,9 @@ const Signup = () => {
               </span>
             </div>
             <button>LOGIN</button>
+            <section style={{marginTop: '20px'}}>
+              <small>New here? <Link to = '/register'>Register</Link> | <Link to='/reset-password'>forgot password?</Link></small>
+            </section>
           </form>
       </div>
     </div>

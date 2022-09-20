@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Background from '../components/Background'
 import '../css/General.css'
+import { Link } from 'react-router-dom'
 
 const Signup = () => {
 
@@ -92,6 +93,9 @@ const Signup = () => {
               />
             </div>
             <button>REGISTER</button>
+            <section style={{marginTop: '20px'}}>
+              <small>Already have an account? <Link to = '/login'>Login</Link></small>
+            </section>
           </form>
       </div>
     </div>

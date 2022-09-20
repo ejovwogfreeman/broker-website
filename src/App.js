@@ -87,6 +87,11 @@ function App() {
             /> 
             <Route
               exact
+              path="/reset-password"
+              element={<Signup/>}
+            /> 
+            <Route
+              exact
               path="*"
               element={<Notfound/>}
             /> 
