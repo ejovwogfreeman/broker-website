@@ -29,7 +29,7 @@
 
 .general-container .body .contents form input{
     width: 47%;
-    padding: 10px 5px;
+    padding: 10px;
     outline: none;
     border: none;
     border-bottom: 1px solid var(--secondary);
@@ -39,7 +39,7 @@
 .general-container .body .contents form textarea{
     width: 100%;
     margin-top: 20px;
-    padding: 10px 5px;
+    padding: 10px;
     outline: none;
     border: none;
     border-bottom: 1px solid var(--secondary);
@@ -78,7 +78,7 @@
 .general-container .body .signin-form div input {
     outline: none;
     border: 1px solid var(--secondary);
-    padding: 10px 5px;
+    padding: 10px;
     width: 40%;
 }
 
@@ -119,7 +119,7 @@
 .general-container .body .signup-form div input {
     outline: none;
     border: 1px solid var(--secondary);
-    padding: 10px 5px;
+    padding: 10px;
     width: 100%;
 }
 
