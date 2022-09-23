@@ -40,7 +40,7 @@ nav .main-nav ul {
 }
 
 nav .main-nav ul li {
-    margin-left: 50px;
+    margin-left: 60px;
 }
 
 nav .main-nav ul li a,
@@ -58,28 +58,32 @@ nav .main-nav ul .account{
     position: relative;
 } 
 
-nav .main-nav ul .account .auth {
+nav .main-nav ul .account .auth1 {
     position: absolute;
     top: 50px; 
-    left: -10px;
+    left: -20px;
     text-align: center;
-    width: 100px;
+    width: 140px;
     transition: 0.5s ease-in-out;
     border: 1px solid var(--primary);
+}
+
+nav .main-nav ul .account .auth2 {
+    margin-left: -15px;
 }
 
 #auth {
     display: none;
 }
 
-nav .main-nav ul .account .auth span {
+nav .main-nav ul .account .auth1 span {
     background-color: white;
     width: 100%;
     display: block;
     transition: 0.5s ease-in-out;
 }
 
-nav .main-nav ul .account .auth span a {
+nav .main-nav ul .account .auth1 span a {
     color: var(--primary);
     height: fit-content; 
     padding: 5px;
@@ -87,17 +91,22 @@ nav .main-nav ul .account .auth span a {
     display: block;
     background-color: white;
     transition: 0.5s ease-in-out;
+    border-bottom: 1px solid var(--primary);
 }
 
-nav .main-nav ul .account .auth span a:hover {
+nav .main-nav ul .account .auth1 span a:hover {
     color: var(--primary);
     width: 100%;
     color: white;
     background-color: var(--primary)
 }
 
-nav .main-nav ul .account .auth span:first-child{
-    border-bottom: 1px solid var(--primary);   
+nav .main-nav ul .account .auth1 span:first-child{
+    border-bottom: none;   
+}
+
+nav .main-nav ul .account .auth1 span:last-child a{
+    border-bottom: none;   
 }
 
 
@@ -142,11 +151,11 @@ nav .main-nav ul .account .auth span:first-child{
     color: var(--secondary);
 }
 
-#sticky .auth span a {
+#sticky .auth1 span a {
     border-bottom: 1px solid var(--primary);
 }
 
-#sticky .auth span a:hover  {
+#sticky .auth1 span a:hover  {
     color: white;
 }
 

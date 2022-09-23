@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import React from 'react';
-import '../css/Navbar.css'
+import '../css/Navbar2.css'
 import { Link } from 'react-router-dom';
 import { CgMail } from 'react-icons/cg';
 import { MdCall } from 'react-icons/md';
@@ -9,15 +9,17 @@ import { BiDownArrow, BiUpArrow } from 'react-icons/bi'
 import logo from '../assets/logo.png'
 import Muinavbar from './Muinavbar'
 
-const Navbar = () => {
-
-  let user = true;
+const Navbar2 = () => {
 
   const [openButton, setOpenButton] = useState(true)
+  const [openButton2, setOpenButton2] = useState(true)
   
     const toggle = () => {
       setOpenButton(!openButton)
-  }
+    }
+    const toggle2 = () => {
+      setOpenButton2(!openButton2)
+    }
 
   const [sticky, setSticky] = useState(false)
 
@@ -45,33 +47,36 @@ const Navbar = () => {
         <div><Link to="/"><img src={logo} alt="" /></Link></div>
         <Muinavbar/>
         <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/faqs">FAQ</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-          {!user ? <li className='account' style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-              <p style={{cursor: 'pointer', display: 'inline', marginBottom: '0px' }} onClick={()=>{toggle()}} className='x'>Account 
-                <span>{openButton ? <BiDownArrow className='icon'/> : <BiUpArrow className='icon'/>}</span>
-              </p>
-            <div className='auth' id={openButton ? 'auth' : ''}>
-                <span><Link to="/login">Login</Link></span>
-                <span><Link to="/register">Register</Link></span>
-            </div>
-          </li> :
+          <li><Link to="/dashboard">Dashboard</Link></li>
+          <li><Link to="/investment">Investment</Link></li>
           <li className='account' style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-              <p style={{cursor: 'pointer', display: 'inline', marginBottom: '0px' }} onClick={()=>{toggle()}} className='x'>Hi User 
+              <p style={{cursor: 'pointer', display: 'inline', marginBottom: '0px' }} onClick={()=>{toggle()}} className='x'>Transaction
                 <span>{openButton ? <BiDownArrow className='icon'/> : <BiUpArrow className='icon'/>}</span>
               </p>
-            <div className='auth' id={openButton ? 'auth' : ''}>
-                <span><Link to="/dashboard">Dashboard</Link></span>
+            <div className='auth1' id={openButton ? 'auth' : ''}>
+                <span><Link to="/deposit">Deposit Fund</Link></span>
+                <span><Link to="/deposit-history">Deposit History</Link></span>
+                <span><Link to="/withdraw">Withdraw Fund</Link></span>
+                <span><Link to="/withdraw-history">Withdraw History</Link></span>
+                <span><Link to="/transaction">Transaction Log</Link></span>
+            </div>
+          </li>
+          <li className='account' style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+              <p style={{cursor: 'pointer', display: 'inline', marginBottom: '0px' }} onClick={()=>{toggle2()}} className='x'>Hi User 
+                <span>{openButton2 ? <BiDownArrow className='icon'/> : <BiUpArrow className='icon'/>}</span>
+              </p>
+            <div className='auth1 auth2' id={openButton2 ? 'auth' : ''}>
+                <span><Link to="/edit-profile">Edit Profile</Link></span>
+                <span><Link to="/change-password">Change Password</Link></span>
+                <span><Link to="/support">Get Support</Link></span>
                 <span><Link to="/login">Logout</Link></span>
             </div>
-          </li>}
+          </li>
         </ul>
       </div>
     </nav>
   )
 }
 
-export default Navbar
+export default Navbar2
 

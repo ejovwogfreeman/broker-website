@@ -3,6 +3,8 @@ import Background from '../components/Background'
 import '../css/General.css'
 import { CgMail } from 'react-icons/cg';
 import { MdCall, MdLocationOn } from 'react-icons/md';
+import Navbar from '../components/Navbar'
+import { Helmet } from 'react-helmet'
 
 const Contact = () => {
   const [ name, setName ] = useState('')
@@ -19,6 +21,10 @@ const Contact = () => {
 
   return (
     <>
+      <Helmet>
+        <title>FFInvestment | Contact</title>
+      </Helmet>
+      <Navbar />
       <div className='general-container'>
         <Background text='CONTACT'/>
         <div className="body">

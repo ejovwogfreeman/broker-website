@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Background from '../components/Background'
 import '../css/General.css'
 import { Link } from 'react-router-dom'
+import Navbar from '../components/Navbar'
+import { Helmet } from 'react-helmet'
 
 const Signup = () => {
 
@@ -28,77 +30,83 @@ const Signup = () => {
   } 
 
   return (
-    <div className='general-container'>
-      <Background text='REGISTER'/>
-      <div className="body">
-      <form onSubmit={handleSubmit} className='signup-form'>
-            <h2>REGISTER FORM</h2>  
-            <div>
+    <>
+      <Helmet>
+        <title>FFInvestment | Register</title>
+      </Helmet>
+      <Navbar />
+      <div className='general-container'>
+        <Background text='REGISTER'/>
+        <div className="body">
+        <form onSubmit={handleSubmit} className='signup-form'>
+              <h2>REGISTER FORM</h2>  
+              <div>
+                <input 
+                  type="text" 
+                  value={referralId}
+                  onChange={(e)=> setReferralId(e.target.value)}
+                  placeholder="Referral ID"
+                  required
+                />
+                <input 
+                  type="text"
+                  value={username}
+                  onChange={(e)=> setUsername(e.target.value)}
+                  placeholder="Enter your Username"
+                  required
+                />
+              </div>
+              <div>
               <input 
-                type="text" 
-                value={referralId}
-                onChange={(e)=> setReferralId(e.target.value)}
-                placeholder="Referral ID"
-                required
-              />
-              <input 
-                type="text"
-                value={username}
-                onChange={(e)=> setUsername(e.target.value)}
-                placeholder="Enter your Username"
-                required
-              />
-            </div>
-            <div>
-            <input 
-                type="text"
-                value={name}
-                onChange={(e)=> setName(e.target.value)}
-                placeholder="Enter your Name"
-                required
-                className='name'
-                style={{marginRight: '0px'}}
-              />
-            </div>
-            <div>
-              <input 
-                type="email" 
-                value={email}
-                onChange={(e)=> setEmail(e.target.value)}
-                placeholder="Enter your Email"
-                required
-              />
-              <input 
-                type="text"
-                value={phoneNumber}
-                onChange={(e)=> setPhoneNumber(e.target.value)}
-                placeholder="Enter your Phone Number"
-                required
-              />
-            </div>
-            <div>
-              <input 
-                type="text" 
-                value={password}
-                onChange={(e)=> setPassword(e.target.value)}
-                placeholder="Enter your Password"
-                required
-              />
-              <input 
-                type="email"
-                value={confirmPassword}
-                onChange={(e)=> setConfirmPassword(e.target.value)}
-                placeholder="Confirm your Passwrod"
-                required
-              />
-            </div>
-            <button>REGISTER</button>
-            <section style={{marginTop: '20px'}}>
-              <small>Already have an account? <Link to = '/login'>Login</Link></small>
-            </section>
-          </form>
+                  type="text"
+                  value={name}
+                  onChange={(e)=> setName(e.target.value)}
+                  placeholder="Enter your Name"
+                  required
+                  className='name'
+                  style={{marginRight: '0px'}}
+                />
+              </div>
+              <div>
+                <input 
+                  type="email" 
+                  value={email}
+                  onChange={(e)=> setEmail(e.target.value)}
+                  placeholder="Enter your Email"
+                  required
+                />
+                <input 
+                  type="text"
+                  value={phoneNumber}
+                  onChange={(e)=> setPhoneNumber(e.target.value)}
+                  placeholder="Enter your Phone Number"
+                  required
+                />
+              </div>
+              <div>
+                <input 
+                  type="text" 
+                  value={password}
+                  onChange={(e)=> setPassword(e.target.value)}
+                  placeholder="Enter your Password"
+                  required
+                />
+                <input 
+                  type="email"
+                  value={confirmPassword}
+                  onChange={(e)=> setConfirmPassword(e.target.value)}
+                  placeholder="Confirm your Passwrod"
+                  required
+                />
+              </div>
+              <button>REGISTER</button>
+              <section style={{marginTop: '20px'}}>
+                <small>Already have an account? <Link to = '/login'>Login</Link></small>
+              </section>
+            </form>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -2,6 +2,14 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
+import Box from "@mui/material/Box";
+import Fab from "@mui/material/Fab";
+import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRounded";
+import Loader from './components/Loader';
+import ScrollToTop from './components/ScrollToTop'
+import Payment from './components/Payment'
+import Footer from './components/Footer'
+
 import Home from './pages/Home';
 import About from './pages/About';
 import Faq from './pages/Faq';
@@ -9,15 +17,17 @@ import Contact from './pages/Contact';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import Notfound from './pages/Notfound';
-import Loader from './components/Loader';
-import Box from "@mui/material/Box";
-import Fab from "@mui/material/Fab";
-import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRounded";
-import Navbar from './components/Navbar'
-import Payment from './components/Payment'
-import Footer from './components/Footer'
-import ScrollToTop from './components/ScrollToTop'
-import Passwordreset from './pages/Passwordreset'
+import Passwordreset from './pages/Passwordreset';
+import Dashboard from './pages/Dashboard';
+import Investment from './pages/Investment';
+import Deposit from './pages/Deposit';
+import DepositHistory from './pages/DepositHistory';
+import Withdraw from './pages/Withdraw';
+import WithdrawHistory from './pages/WithdrawHistory';
+import Transaction from './pages/Transaction';
+import Editprofile from './pages/Editprofile';
+import Passwordchange from './pages/Passwordchange';
+import Support from './pages/Support';
 
 function App() {
 
@@ -55,8 +65,7 @@ function App() {
     return (
       <div className="App">
         <Router>
-          <ScrollToTop/>
-          <Navbar/>
+          <ScrollToTop/>          
           <Routes>
             <Route
               exact
@@ -92,6 +101,56 @@ function App() {
               exact
               path="/reset-password"
               element={<Passwordreset/>}
+            /> 
+            <Route
+              exact
+              path="/dashboard"
+              element={<Dashboard/>}
+            /> 
+            <Route
+              exact
+              path="/investment"
+              element={<Investment/>}
+            /> 
+            <Route
+              exact
+              path="/deposit"
+              element={<Deposit/>}
+            /> 
+            <Route
+              exact
+              path="/deposit-history"
+              element={<DepositHistory/>}
+            /> 
+            <Route
+              exact
+              path="/withdraw"
+              element={<Withdraw/>}
+            /> 
+            <Route
+              exact
+              path="/withdraw-history"
+              element={<WithdrawHistory/>}
+            /> 
+            <Route
+              exact
+              path="/transaction"
+              element={<Transaction/>}
+            /> 
+            <Route
+              exact
+              path="/edit-profile"
+              element={<Editprofile/>}
+            /> 
+            <Route
+              exact
+              path="/change-password"
+              element={<Passwordchange/>}
+            /> 
+            <Route
+              exact
+              path="/support"
+              element={<Support/>}
             /> 
             <Route
               exact
