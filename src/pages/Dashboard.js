@@ -38,7 +38,7 @@ const Dashboard = () => {
                     <h5>$ 0</h5>
                   </div>
                   <div className="card-tail">
-                    <small>Total Withdras</small>
+                    <small>Total Withdraws</small>
                     <BsArrowRightCircleFill/>
                   </div>
                 </div>
@@ -60,7 +60,7 @@ const Dashboard = () => {
                   <div>Search:&nbsp;<input type="text" /></div>
                 </div>
                 <br />
-                <div className='form'>
+                <div className='form spans'>
                   <small>#&nbsp;ID</small>
                   <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Register Date</small>
                   <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Username</small>
@@ -69,7 +69,7 @@ const Dashboard = () => {
                   <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Phone Number</small>
                   <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Status</small>
                 </div>
-                <small style={{textAlign: 'center', display: 'block', borderTop: '3px solid rgba(0, 0, 0, 0.3)', marginTop: '10px', paddingTop: '10px'}}>No data available in table</small>
+                <small style={{textAlign: 'center', display: 'block', borderTop: '3px solid rgba(0, 0, 0, 0.3)', marginTop: '0px', paddingTop: '0px'}}>No data available in table</small>
                 <br />
                 <div className="form">
                   <small>showing 0 of 0 entries</small>

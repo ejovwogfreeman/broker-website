@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import { Helmet } from 'react-helmet'
 
-const Signup = () => {
+const Passwordreset = () => {
 
   const [ email, setEmail ] = useState('')
 
@@ -46,4 +46,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default Passwordreset

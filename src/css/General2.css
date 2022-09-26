@@ -70,6 +70,19 @@
     align-items: center;
 }
 
+.general-container2 .body .content .account-stats .ref-user .spans small{
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-left:0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.general-container2 .body .content .account-stats .ref-user .spans small:first-of-type{
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
 .general-container2 .body .content .account-stats .ref-user .form input,
 .general-container2 .body .content .account-stats .ref-user .form select{
     outline: none;
@@ -114,16 +127,84 @@
 .general-container2 .investment {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    text-align: center;
+}
+
+.general-container2 .withdraw {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
     text-align: center;
 }
 
 .general-container2 .investment .plan-box{
-    border: 1px solid var(--primary);
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
 }
 
-.general-container2 .investment .plan-box h1{
-    background-color: var(--primary);
+
+.general-container2 .investment .plan-box h3{
+    background-color: var(--secondary);
     color: white;
+    padding: 20px;
+}
+.general-container2 .investment .plan-box h6{
+    padding: 10px;
+}
+
+.general-container2 .investment .plan-box p{
+    border-top: 1px solid var(--secondary);
+    padding: 10px;
+    margin: 0px;
+}
+
+.general-container2 .investment .plan-box .last{
+    width: 100%;
+    padding: 20px 0px;
+}
+
+.general-container2 .investment .plan-box .last a{
+    background-color: var(--secondary);
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.support-span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--primary);
+}
+
+.support-span button {
+    padding: 5px;
+    background-color: var(--secondary);
+    border-radius: 5px;
+}
+
+@media screen and (max-width:1200px) {
+
+    .general-container2 .investment {
+        display: block;
+    }
+
+    .general-container2 .invest .plan-box {
+        margin-bottom: 20px;
+    }
+
+    .general-container2 .withdraw {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .general-container2 .withdraw .plan-box {
+        margin-bottom: 20px;
+    }
+
 }
 
 @media screen and (max-width:1000px) {

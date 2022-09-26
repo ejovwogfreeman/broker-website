@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import Navbar2 from '../components/Navbar2'
 import { Helmet } from 'react-helmet'
 import { GiCheckMark } from 'react-icons/gi'
-import { GrSend } from 'react-icons/gr'
+import { FaTelegramPlane } from 'react-icons/fa'
 
 const Investment = () => {
   return (
@@ -24,8 +24,8 @@ const Investment = () => {
                 <p><GiCheckMark />&nbsp;Commission - 150%</p>
                 <p><GiCheckMark />&nbsp;Repeat - 1 times</p>
                 <p><GiCheckMark />&nbsp;Compound - Weekly</p>
+                <p className='last'><Link><FaTelegramPlane />&nbsp;Invest Under This Package</Link></p>
             </div>
-            <Link><GrSend />&nbsp;Invest Under This Package</Link>
           </div>        
           <div className='plan-box'>
             <h3>STARTER</h3>
@@ -34,9 +34,9 @@ const Investment = () => {
                 <p><GiCheckMark />&nbsp;Commission - 150%</p>
                 <p><GiCheckMark />&nbsp;Repeat - 1 times</p>
                 <p><GiCheckMark />&nbsp;Compound - Weekly</p>
+                <p className='last'><Link><FaTelegramPlane />&nbsp;Invest Under This Package</Link></p>
             </div>
-            <Link><GrSend />&nbsp;Invest Under This Package</Link>
-          </div>        
+          </div>   
           <div className='plan-box'>
             <h3>STARTER</h3>
             <div>
@@ -44,9 +44,9 @@ const Investment = () => {
                 <p><GiCheckMark />&nbsp;Commission - 150%</p>
                 <p><GiCheckMark />&nbsp;Repeat - 1 times</p>
                 <p><GiCheckMark />&nbsp;Compound - Weekly</p>
+                <p className='last'><Link><FaTelegramPlane />&nbsp;Invest Under This Package</Link></p>
             </div>
-            <Link><GrSend />&nbsp;Invest Under This Package</Link>
-          </div>        
+          </div>   
         </div>        
       </div>
     </>
