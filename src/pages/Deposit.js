@@ -22,28 +22,28 @@ const Withdraw = () => {
           <div className='plan-box'>
             <h3>BITCOIN</h3>
             <div>
-                <img src={cryp1} alt="" style={{margin: '10px'}}/>
+                <img src={cryp1} alt="" style={{margin: '10px'}} width='90%'/>
                 <p className='last'><Link>ADD FUND</Link></p>
             </div>
           </div>    
           <div className='plan-box'>
             <h3>TETHER</h3>
             <div>
-                <img src={cryp2} alt="" style={{margin: '10px'}}/>
+                <img src={cryp2} alt="" style={{margin: '10px'}} width='90%'/>
                 <p className='last'><Link>ADD FUND</Link></p>
             </div>
           </div>    
           <div className='plan-box'>
             <h3>ETHERIUM</h3>
             <div>
-                <img src={cryp3} alt="" style={{margin: '10px'}}/>
+                <img src={cryp3} alt="" style={{margin: '10px'}} width='90%'/>
                 <p className='last' style={{marginTop: '18%'}}><Link>ADD FUND</Link></p>
             </div>
           </div>    
           <div className='plan-box'>
             <h3>LUNO</h3>
             <div>
-                <img src={cryp4} alt="" style={{margin: '10px'}}/>
+                <img src={cryp4} alt="" style={{margin: '10px'}} width='90%'/>
                 <p className='last'><Link>ADD FUND</Link></p>
             </div>
           </div>    
