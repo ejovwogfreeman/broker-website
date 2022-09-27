@@ -44,7 +44,7 @@ const Navbar2 = () => {
           </div>
       </div>
       <div className="main-nav" id={sticky ? 'sticky' : ''}>
-        <div><Link to="/"><img src={logo} alt="" width='80px'/></Link></div>
+        <div><Link to="/"><img src={logo} alt="" width='60px'/></Link></div>
         <Muinavbar2/>
         <ul>
           <li><Link to="/dashboard">Dashboard</Link></li>

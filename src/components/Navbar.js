@@ -42,7 +42,7 @@ const Navbar = () => {
           </div>
       </div>
       <div className="main-nav" id={sticky ? 'sticky' : ''}>
-        <div><Link to="/"><img src={logo} alt="" width='80px'/></Link></div>
+        <div><Link to="/"><img src={logo} alt="" width='60px'/></Link></div>
         <Muinavbar/>
         <ul>
           <li><Link to="/">Home</Link></li>
