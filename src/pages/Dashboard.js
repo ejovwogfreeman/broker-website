@@ -45,7 +45,7 @@ const Dashboard = () => {
               </div>
             </div>
             <br />
-            <div className="account-stats">
+            <div className="account-stats scroll-x">
               <h3>Reference User</h3>
               <div className="card-show ref-user">
                 <div className="form">
@@ -60,7 +60,7 @@ const Dashboard = () => {
                   <div>Search:&nbsp;<input type="text" /></div>
                 </div>
                 <br />
-                <div className='form spans'>
+                {/* <div className='form spans'>
                   <small>#&nbsp;ID</small>
                   <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Register Date</small>
                   <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Username</small>
@@ -68,18 +68,29 @@ const Dashboard = () => {
                   <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Email</small>
                   <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Phone Number</small>
                   <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Status</small>
-                </div>
-                <small style={{textAlign: 'center', display: 'block', borderTop: '3px solid rgba(0, 0, 0, 0.3)', marginTop: '0px', paddingTop: '0px'}}>No data available in table</small>
+                </div> */}
+                <table>
+                    <thead>
+                      <td>#&nbsp;ID</td>
+                      <td><TbArrowsDownUp />&nbsp;Register Date</td>
+                      <td><TbArrowsDownUp />&nbsp;Usernae</td>
+                      <td><TbArrowsDownUp />&nbsp;Name</td>
+                      <td><TbArrowsDownUp />&nbsp;Email</td>
+                      <td><TbArrowsDownUp />&nbsp;Phone Number</td>
+                      <td><TbArrowsDownUp />&nbsp;Status</td>
+                    </thead>
+                </table>
+                <small className='division'>No data available in table</small>
                 <br />
                 <div className="form">
-                  <small>showing 0 of 0 entries</small>
+                  <div><small>showing 0 of 0 entries</small></div>
                   <div><BsArrowLeftCircleFill />&nbsp;&nbsp;<BsArrowRightCircleFill /></div>
                 </div>
               </div>
             </div>
             <br />
             <div className="account-stats">
-              <h3>YOUR REFERRAL LINK: &nbsp; &nbsp; Number OF YOUR REFERRALS USER : 0</h3>
+              <h3>Number Of Your Referral: 0 <br /> Your Referral Link:</h3>
               <div className="card-show">
                   <form action="">
                     <input type="text" />
