@@ -15,7 +15,7 @@ const Investment = () => {
       </Helmet>
       <Navbar2 />
       <div className='general-container2'>
-        <Background text='OUR INVESTMENT PACKAGE'/>
+        <Background text='INVESTMENT PACKAGE'/>
         <div className="body investment">
           <div className='plan-box'>
             <h3>STARTER</h3>

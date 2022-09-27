@@ -244,6 +244,11 @@ table td {
         width: 1020px;
     }
 
+    .scroll-x .support-span {
+        width: 1020px;
+        display: block;
+    }
+
     .scroll-x .form{
         flex-direction: column;
     }

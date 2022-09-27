@@ -18,7 +18,7 @@ const WithdrawHistory = () => {
         <Background text='WITHDRAW HISTORY'/>
         <div className="body">
           <div className="content">
-            <div className="account-stats">
+            <div className="account-stats scroll-x">
               <h3>WITHDRAW HISTORY</h3>
               <div className="card-show ref-user">
                 <div className="form">
@@ -33,15 +33,18 @@ const WithdrawHistory = () => {
                   <div>Search:&nbsp;<input type="text" /></div>
                 </div>
                 <br />
-                <div className='form spans'>
-                  <small>#&nbsp;ID</small>
-                  <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Date</small>
-                  <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Transaction ID</small>
-                  <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Withdrawal Method</small>
-                  <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Amount</small>
-                  <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Status</small>
-                </div>
-                <small style={{textAlign: 'center', display: 'block', borderTop: '3px solid rgba(0, 0, 0, 0.3)', marginTop: '0', paddingTop: '0px'}}>No data available in table</small>
+                <table>
+                    <thead>
+                      <td>#&nbsp;ID</td>
+                      <td><TbArrowsDownUp />&nbsp;Register Date</td>
+                      <td><TbArrowsDownUp />&nbsp;Usernae</td>
+                      <td><TbArrowsDownUp />&nbsp;Name</td>
+                      <td><TbArrowsDownUp />&nbsp;Email</td>
+                      <td><TbArrowsDownUp />&nbsp;Phone Number</td>
+                      <td><TbArrowsDownUp />&nbsp;Status</td>
+                    </thead>
+                </table>
+                <small className='division'>No data available in table</small>
                 <br />
                 <div className="form">
                   <small>showing 0 of 0 entries</small>
