@@ -1,7 +1,7 @@
 import React from 'react'
 import Background from '../components/Background'
 import '../css/General2.css'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Navbar2 from '../components/Navbar2'
 import { Helmet } from 'react-helmet'
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs'
@@ -19,7 +19,7 @@ const Suppoty = () => {
         <div className="body">
           <div className="content">
             <div className="account-stats scroll-x">
-            <span className='support-span'><h3 style={{borderRadius: '0px', padding: '0px'}}>SUPPPORT TICKET STATUS</h3><button>+ OPEN NEW SUPPORT TICKET</button></span>
+            <span className='support-span'><h3 style={{borderRadius: '0px', padding: '0px'}}>SUPPPORT TICKET STATUS</h3><Link to='/support-open' style={{color: 'rgb(8, 5, 34)'}} className='button'>+ OPEN NEW SUPPORT TICKET</Link></span>
               <div className="card-show ref-user">
                 <div className="form">
                   <div>Show entries:&nbsp;

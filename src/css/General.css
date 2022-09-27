@@ -82,6 +82,13 @@
     width: 40%;
 }
 
+.general-container .body .signin-form div textarea {
+    outline: none;
+    border: 1px solid var(--secondary);
+    padding: 10px;
+    width: 40%;
+}
+
 .general-container .body .signin-form div input:focus {
     background-color: #eee;
 }
@@ -161,6 +168,9 @@
         margin-top: 60px;
     }
     .general-container .body .signin-form div input {
+        width: 80%;
+    }
+    .general-container .body .signin-form div textarea {
         width: 80%;
     }
     .general-container .body .signin-form button {

@@ -37,7 +37,7 @@ const Investment = () => {
             <h1>Fast-track <br /> your success</h1>
             <div>
                 <p>Register with us to start earning more</p> <br />
-                <Link to='/'>CREATE AN ACCOUNT</Link>
+                <Link to='/register'>CREATE AN ACCOUNT</Link>
             </div>
         </div>
     </div>

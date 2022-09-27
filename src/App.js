@@ -28,6 +28,7 @@ import Transaction from './pages/Transaction';
 import Editprofile from './pages/Editprofile';
 import Passwordchange from './pages/Passwordchange';
 import Support from './pages/Support';
+import SupportTicket from './pages/SupportTicket';
 
 function App() {
 
@@ -151,6 +152,11 @@ function App() {
               exact
               path="/support"
               element={<Support/>}
+            /> 
+            <Route
+              exact
+              path="/support-open"
+              element={<SupportTicket/>}
             /> 
             <Route
               exact

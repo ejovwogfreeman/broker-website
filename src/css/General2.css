@@ -182,7 +182,7 @@
     background-color: var(--primary);
 }
 
-.support-span button {
+.support-span .button {
     padding: 5px;
     background-color: var(--secondary);
     border-radius: 5px;
