@@ -7,7 +7,7 @@ import { MdCall } from 'react-icons/md';
 import { AiOutlineUserAdd, AiOutlineUser } from 'react-icons/ai';
 import { BiDownArrow, BiUpArrow } from 'react-icons/bi'
 import logo from '../assets/logo.png'
-import Muinavbar from './Muinavbar'
+import Muinavbar2 from './Muinavbar2'
 
 const Navbar2 = () => {
 
@@ -45,7 +45,7 @@ const Navbar2 = () => {
       </div>
       <div className="main-nav" id={sticky ? 'sticky' : ''}>
         <div><Link to="/"><img src={logo} alt="" /></Link></div>
-        <Muinavbar/>
+        <Muinavbar2/>
         <ul>
           <li><Link to="/dashboard">Dashboard</Link></li>
           <li><Link to="/investment">Investment</Link></li>
