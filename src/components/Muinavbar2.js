@@ -32,7 +32,7 @@ const Muinavbar2 = () => {
                     <li className='li x'><Link to="/deposit-history" onClick={()=> setOpenDrawer(false)}><RiHistoryLine style={{marginRight: '10px'}}/>Deposit History</Link></li>
                     <li className='li x'><Link to="/withdraw" onClick={()=> setOpenDrawer(false)}><GiTakeMyMoney style={{marginRight: '10px'}}/>Withdraw Fund</Link></li>
                     <li className='li x'><Link to="/withdraw-history" onClick={()=> setOpenDrawer(false)}><TbHistory style={{marginRight: '10px'}}/>Withdraw History</Link></li>
-                    <li className='li x'><Link to="/Transaction Log" onClick={()=> setOpenDrawer(false)}><AiOutlineTransaction style={{marginRight: '10px'}}/>Transaction Log</Link></li>
+                    <li className='li x'><Link to="/Transaction" onClick={()=> setOpenDrawer(false)}><AiOutlineTransaction style={{marginRight: '10px'}}/>Transaction Log</Link></li>
                     <li className='li x'><Link to="/edit-profile" onClick={()=> setOpenDrawer(false)}><RiExchangeLine style={{marginRight: '10px'}}/>Edit Profile</Link></li>
                     <li className='li x'><Link to="/change-password" onClick={()=> setOpenDrawer(false)}><RiLockPasswordLine style={{marginRight: '10px'}}/>Change Password</Link></li>
                     <li className='li x'><Link to="/support" onClick={()=> setOpenDrawer(false)}><RiQuestionAnswerLine style={{marginRight: '10px'}}/>Get Support</Link></li>
