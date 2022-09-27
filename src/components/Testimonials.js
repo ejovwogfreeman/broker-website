@@ -4,13 +4,14 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';  
 import '../css/Testimonials.css'
 import img from '../assets/cryptobg.jpg'
+import logo from '../assets/logo.png'
 import { AiFillStar } from 'react-icons/ai'
 
 const Testimonials = () => {
   return (
     <div className='testimonials-container'>
         <div className='owl-container'>
-            <h2>WHAT PEOPLE SAY</h2>
+        <h2><span>WHAT PEOPLE <span style={{color: 'rgb(35, 201, 216)'}}>SAY</span> <br/> <img src={logo} width='100px'/></span></h2>
             <OwlCarousel
             loop={true}
             items={1}

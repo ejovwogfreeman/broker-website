@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../css/Investment.css'
+import logo from '../assets/logo.png'
 
 const Investment = () => {
   return (
@@ -13,7 +14,7 @@ const Investment = () => {
             </div>
         </div>
         <div className='how'>
-            <h2>HOW FINANCIAL FREEDOM INVESTMENT WORKS</h2>
+            <h2><span>HOW <span style={{color: 'rgb(35, 201, 216)'}}>FINANCIAL FREEDOM INVESTMENT</span>WORKS <br/> <img src={logo} width='100px'/></span></h2>
             <div className='how-grid'>
                 <div>
                     <h3>Sign up</h3>
