@@ -21,7 +21,7 @@ const Muinavbar2 = () => {
             <AiOutlineMenu style={{color: 'white', fontSize:'30px', backgroundColor: 'rgb(8, 5, 34)', borderRadius: '5px', padding: '3px'}}/>
         </IconButton>
         <Drawer anchor="bottom" open={openDrawer} onClose={()=> setOpenDrawer(false)} >
-            <div className='close-icon'>
+            <div className='close-icon' id='close-icon-again'>
                 <AiOutlineClose onClick={()=> setOpenDrawer(false)}/>
             </div>
             <Box p={1} width='100%' textAlign='left'> 
