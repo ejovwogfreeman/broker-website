@@ -5,11 +5,13 @@ import { AiOutlineHome } from 'react-icons/ai'
 import { MdOutlineContacts } from 'react-icons/md'
 import { BsTelephone } from 'react-icons/bs'
 import { RiQuestionnaireLine } from 'react-icons/ri'
-import { AiOutlineUserAdd, AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineUserAdd, AiOutlineUser, AiOutlineUserDelete } from 'react-icons/ai';
+import { GoDashboard } from 'react-icons/go'
 import { Link } from 'react-router-dom'
 import '../css/Navbar.css';
 
 const Muinavbar = () => {
+    let user = true;
   const [ openDrawer, setOpenDrawer ] = useState(false)
   return (
     <div className='mobile-nav'>
@@ -26,8 +28,18 @@ const Muinavbar = () => {
                     <li className='li x'><Link to="/about" onClick={()=> setOpenDrawer(false)}><MdOutlineContacts style={{marginRight: '10px'}}/>About</Link></li>
                     <li className='li x'><Link to="/faqs" onClick={()=> setOpenDrawer(false)}><RiQuestionnaireLine style={{marginRight: '10px'}}/>FAQ</Link></li>
                     <li className='li x'><Link to="/contact" onClick={()=> setOpenDrawer(false)}><BsTelephone style={{marginRight: '10px'}}/>Contact</Link></li>
-                    <li className='li x'><Link to="/login" onClick={()=> setOpenDrawer(false)}><AiOutlineUser style={{marginRight: '10px'}}/>Login</Link></li>
-                    <li className='li x'><Link to="/register" onClick={()=> setOpenDrawer(false)}><AiOutlineUserAdd style={{marginRight: '10px'}}/>Register</Link></li>
+                    {
+                    !user ? 
+                    <>
+                        <li className='li x'><Link to="/login" onClick={()=> setOpenDrawer(false)}><AiOutlineUser style={{marginRight: '10px'}}/>Login</Link></li>
+                        <li className='li x'><Link to="/register" onClick={()=> setOpenDrawer(false)}><AiOutlineUserAdd style={{marginRight: '10px'}}/>Register</Link></li>
+                    </>
+                    :
+                    <>
+                        <li className='li x'><Link to="/dashboard" onClick={()=> setOpenDrawer(false)}><GoDashboard style={{marginRight: '10px'}}/>Dashboard</Link></li>
+                        <li className='li x'><Link to="/login" onClick={()=> setOpenDrawer(false)}><AiOutlineUserDelete style={{marginRight: '10px'}}/>Logout</Link></li>
+                    </>
+                    }
                 </Typography>
             </Box>
         </Drawer>

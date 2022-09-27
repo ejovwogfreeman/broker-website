@@ -17,7 +17,7 @@ const Withdraw = () => {
       </Helmet>
       <Navbar2 />
       <div className='general-container2'>
-        <Background text='WITHDRAW FUNDS'/>
+        <Background text='DEPOSIT FUNDS'/>
         <div className="body investment withdraw">
           <div className='plan-box'>
             <h3>BITCOIN</h3>
