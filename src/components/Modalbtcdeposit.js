@@ -15,12 +15,12 @@ const Modalbtcdeposit = () => {
         <form>
           <h3>Amount Deposited</h3>
           <div>
-            <input type="number" placeholder="Amount Deposited" />
+            <input type="number" placeholder="Amount Deposited" required />
           </div>
           <br />
           <h3>Deposit Proof</h3>
           <div>
-            <input type="file" />
+            <input type="file" required />
           </div>
           <br />
           <button>
