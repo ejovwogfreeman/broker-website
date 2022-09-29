@@ -8,7 +8,7 @@ const Modals = ({openModal}) => {
     <div className='modal-container'>
         <div className='modal-box'>
             <span>
-              <h1>Hello, ready to invest?</h1>
+              <h1 style={{margin: '0px'}}>Hello, ready to invest?</h1>
               <AiOutlineClose onClick={()=>openModal()} className='icon'/>
             </span>
             <Link to='/deposit'>continue to deposit</Link>
