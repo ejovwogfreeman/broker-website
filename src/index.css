@@ -17,13 +17,13 @@ a {
   text-decoration: none !important;
 }
 
-
 ul {
   margin: 0px !important;
   padding: 0px !important;
 }
 
-ul, li {
+ul,
+li {
   list-style-type: none;
   margin: 0px;
 }
