@@ -31,7 +31,7 @@ const Investment = ({modal, openModal}) => {
             </div>
           </div>        
           <div className='plan-box'>
-            <h3>STARTER</h3>
+            <h3>SILVER</h3>
             <div>
                 <h6>75000.00 USD - 100000.00 USD</h6>
                 <p><GiCheckMark />&nbsp;Commission - 200%</p>
@@ -41,7 +41,7 @@ const Investment = ({modal, openModal}) => {
             </div>
           </div>   
           <div className='plan-box'>
-            <h3>STARTER</h3>
+            <h3>GOLD</h3>
             <div>
                 <h6>100000.00 USD - 1250000.00 USD</h6>
                 <p><GiCheckMark />&nbsp;Commission - 300%</p>

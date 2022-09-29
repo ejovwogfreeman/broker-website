@@ -67,7 +67,6 @@ function App() {
     setModal(!modal)
   }
 
-
     const [isLoading, setIsloading]=useState(true);
 
     useEffect(()=> {
