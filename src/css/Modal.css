@@ -78,6 +78,7 @@
   height: 500px;
   margin-top: 60px;
   position: relative;
+  padding: 10px;
 }
 
 form input {
