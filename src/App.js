@@ -30,6 +30,16 @@ import Passwordchange from './pages/Passwordchange';
 import Support from './pages/Support';
 import SupportTicket from './pages/SupportTicket';
 
+import Modalbtcdeposit from './components/Modalbtcdeposit'
+import Modaltetherdeposit from './components/Modaltetherdeposit'
+import Modaletheriumdeposit from './components/Modaletheriumdeposit'
+import Modallunodeposit from './components/Modallunodeposit'
+
+import Modalbankwithdraw from './components/Modalbankwithdraw'
+import Modalbtcwithdraw from './components/Modalbtcwithdraw'
+import Modallunowithdraw from './components/Modallunowithdraw'
+import Modaltetherwithdraw from './components/Modaltetherwithdraw'
+
 function App() {
 
   const [show, setShow] = useState(-100);
@@ -50,6 +60,13 @@ function App() {
       })
     );
   }, []);
+
+  const [modal, setModal] = useState(false)
+
+  const openModal = () => {
+    setModal(!modal)
+  }
+
 
     const [isLoading, setIsloading]=useState(true);
 
@@ -111,7 +128,7 @@ function App() {
             <Route
               exact
               path="/investment"
-              element={<Investment/>}
+              element={<Investment modal={modal} openModal={openModal}/>}
             /> 
             <Route
               exact
@@ -156,7 +173,47 @@ function App() {
             <Route
               exact
               path="/support-open"
-              element={<SupportTicket/>}
+              element={<SupportTicket />}
+            /> 
+            <Route
+              exact
+              path="/btc-deposit"
+              element={<Modalbtcdeposit />}
+            /> 
+            <Route
+              exact
+              path="/tether-deposit"
+              element={<Modaltetherdeposit />}
+            /> 
+            <Route
+              exact
+              path="/etherium-deposit"
+              element={<Modaletheriumdeposit />}
+            /> 
+            <Route
+              exact
+              path="/luno-deposit"
+              element={<Modallunodeposit />}
+            /> 
+            <Route
+              exact
+              path="/bank-withdraw"
+              element={<Modalbankwithdraw />}
+            /> 
+            <Route
+              exact
+              path="/btc-withdraw"
+              element={<Modalbtcwithdraw />}
+            /> 
+            <Route
+              exact
+              path="/luno-withdraw"
+              element={<Modallunowithdraw />}
+            /> 
+            <Route
+              exact
+              path="/tether-withdraw"
+              element={<Modaltetherwithdraw />}
             /> 
             <Route
               exact

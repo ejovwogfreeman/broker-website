@@ -60,15 +60,6 @@ const Dashboard = () => {
                   <div>Search:&nbsp;<input type="text" /></div>
                 </div>
                 <br />
-                {/* <div className='form spans'>
-                  <small>#&nbsp;ID</small>
-                  <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Register Date</small>
-                  <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Username</small>
-                  <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Name</small>
-                  <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Email</small>
-                  <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Phone Number</small>
-                  <small style={{display: 'flex', alignItems: 'center'}}><TbArrowsDownUp />&nbsp;Status</small>
-                </div> */}
                 <table>
                     <thead>
                       <td>#&nbsp;ID</td>

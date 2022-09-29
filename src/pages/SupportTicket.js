@@ -14,8 +14,8 @@ const SupportTicket = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    setPassword1('')
-    setPassword2('')
+    setSubject('')
+    setMessage('')
   } 
 
   return (
