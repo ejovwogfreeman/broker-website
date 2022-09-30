@@ -15,7 +15,7 @@ const InvestmentHistory = () => {
       </Helmet>
       <Navbar2 />
       <div className="general-container2">
-        <Background text="WITHDRAW HISTORY" />
+        <Background text="INVESTMENT HISTORY" />
         <div className="body">
           <div className="content">
             <div className="account-stats scroll-x">
