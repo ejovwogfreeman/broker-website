@@ -19,7 +19,7 @@ const InvestmentHistory = () => {
         <div className="body">
           <div className="content">
             <div className="account-stats scroll-x">
-              <h3>WITHDRAW HISTORY</h3>
+              <h3>INVESTMENT HISTORY</h3>
               <div className="card-show ref-user">
                 <div className="form">
                   <div>
@@ -39,7 +39,7 @@ const InvestmentHistory = () => {
                 <br />
                 <table>
                   <thead>
-                    <td>#&nbsp;ID</td>
+                    <td>#&nbsp;S/N</td>
                     <td>
                       <TbArrowsDownUp />
                       &nbsp;Date
@@ -54,7 +54,23 @@ const InvestmentHistory = () => {
                     </td>
                     <td>
                       <TbArrowsDownUp />
-                      &nbsp;Withdraw Amount
+                      &nbsp;Investment Plan
+                    </td>
+                    <td>
+                      <TbArrowsDownUp />
+                      &nbsp;Amount Invested
+                    </td>
+                    <td>
+                      <TbArrowsDownUp />
+                      &nbsp;Comission
+                    </td>
+                    <td>
+                      <TbArrowsDownUp />
+                      &nbsp;Compound Weekly
+                    </td>
+                    <td>
+                      <TbArrowsDownUp />
+                      &nbsp;Term Monthly
                     </td>
                     <td>
                       <TbArrowsDownUp />

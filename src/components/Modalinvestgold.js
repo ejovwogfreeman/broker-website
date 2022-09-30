@@ -25,7 +25,7 @@ const Modalinvestgold = () => {
             style={{
               border: "1px solid rgba(0,0,0,0.3)",
               borderRadius: "5px",
-              width: "500px",
+              width: "90%px",
               margin: "auto",
               padding: "0",
             }}
