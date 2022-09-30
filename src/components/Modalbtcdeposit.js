@@ -7,7 +7,7 @@ const Modalbtcdeposit = () => {
   return (
     <div className="modal-container">
       <div className="modal-box deposit" style={{ overflowY: "scroll" }}>
-        <h2>Deposit using bitcoin</h2>
+        <h2>Deposit Using Bitcoin</h2>
         <div>
           <h3>Wallet Address</h3>
           <p>qwertyui12345678</p>
@@ -30,10 +30,11 @@ const Modalbtcdeposit = () => {
         </form>
         <br />
         <div>
-          <h3>How to deposit</h3>
+          <h3>How To Deposit</h3>
           <p>
             You are required to make payment to the address provided above and
-            fill the form as stated for your payment to be processed.
+            fill the form as stated for your deposit to be processed and your
+            dashboard will be updated within 24hours.
           </p>
         </div>
         <Link to="/deposit" style={{ marginTop: "0px" }}>
