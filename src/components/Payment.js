@@ -19,48 +19,48 @@ const Payment = () => {
             <br /> <img src={logo} width="100px" />
           </span>
         </h2>
-        <OwlCarousel
-          loop={true}
-          items={1}
-          responsiveRefreshRate={0}
-          autoplay={true}
-          smartSpeed={1000}
-          autoplayTimeout={5000}
-          autoplayHoverPause={true}
-          // nav={true}
-          // navText={
-          //     [
-          //         `<div class="prev"><</div>`,
-          //         `<div class="next">></div>`
-          //     ]
-          // }
-        >
-          <div className="cryp">
-            <img src={cryp1} alt="" />
-            <img src={cryp2} alt="" />
-            <img src={cryp3} alt="" />
-            <img src={cryp4} alt="" />
-          </div>
-          <div className="cryp">
-            <img src={cryp2} alt="" />
-            <img src={cryp3} alt="" />
-            <img src={cryp4} alt="" />
-            <img src={cryp1} alt="" />
-          </div>
-          <div className="cryp">
-            <img src={cryp3} alt="" />
-            <img src={cryp4} alt="" />
-            <img src={cryp2} alt="" />
-            <img src={cryp1} alt="" />
-          </div>
-          <div className="cryp">
-            <img src={cryp4} alt="" />
-            <img src={cryp1} alt="" />
-            <img src={cryp2} alt="" />
-            <img src={cryp3} alt="" />
-          </div>
-        </OwlCarousel>
-        ;
+        {/* <div className="cryp">
+          <img src={cryp1} alt="" />
+          <img src={cryp2} alt="" />
+          <img src={cryp3} alt="" />
+          <img src={cryp4} alt="" />
+        </div> */}
+        <div>
+          <OwlCarousel
+            loop={true}
+            items={1}
+            responsiveRefreshRate={0}
+            autoplay={true}
+            smartSpeed={1000}
+            autoplayTimeout={5000}
+            autoplayHoverPause={true}
+          >
+            <div className="cryp">
+              <img src={cryp1} alt="" />
+              <img src={cryp2} alt="" />
+              <img src={cryp3} alt="" />
+              <img src={cryp4} alt="" />
+            </div>
+            <div className="cryp">
+              <img src={cryp2} alt="" />
+              <img src={cryp3} alt="" />
+              <img src={cryp4} alt="" />
+              <img src={cryp1} alt="" />
+            </div>
+            <div className="cryp">
+              <img src={cryp3} alt="" />
+              <img src={cryp4} alt="" />
+              <img src={cryp2} alt="" />
+              <img src={cryp1} alt="" />
+            </div>
+            <div className="cryp">
+              <img src={cryp4} alt="" />
+              <img src={cryp1} alt="" />
+              <img src={cryp2} alt="" />
+              <img src={cryp3} alt="" />
+            </div>
+          </OwlCarousel>
+        </div>
       </div>
     </div>
   );
