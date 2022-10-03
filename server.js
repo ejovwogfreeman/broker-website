@@ -18,6 +18,10 @@ app.use(express.json());
 app.use("/api/users", userRoutes);
 app.use("/api/support", supportRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Welcome to financial freedom investment");
+});
+
 const func = async () => {
   await Email.find().then((data) => console.log(data));
 };
