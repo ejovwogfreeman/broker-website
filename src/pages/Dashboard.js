@@ -6,9 +6,15 @@ import Navbar2 from "../components/Navbar2";
 import { Helmet } from "react-helmet";
 import { FaRecycle, FaRegMoneyBillAlt } from "react-icons/fa";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
+import { UserContext } from "../context/UserContext";
+import { ToastifyContext } from "../context/ToastifyContext";
 import { TbArrowsDownUp } from "react-icons/tb";
 
 const Dashboard = () => {
+  const [ToastifyState, setToastifyState] = React.useContext(ToastifyContext);
+  const [UserState, setUserState] = React.useContext(UserContext);
+  console.log(UserState);
+
   return (
     <>
       <Helmet>
@@ -25,7 +31,7 @@ const Dashboard = () => {
                 <div className="card">
                   <div className="card-head">
                     <FaRegMoneyBillAlt className="icon" />
-                    <h5>$ 3500</h5>
+                    <h5>$ {UserState.balance}</h5>
                   </div>
                   <div className="card-tail">
                     <small>Total Deposits / Current Balance</small>
@@ -35,7 +41,7 @@ const Dashboard = () => {
                 <div className="card">
                   <div className="card-head">
                     <FaRecycle className="icon" />
-                    <h5>$ 0</h5>
+                    <h5>${UserState?.withdrawal?.length}</h5>
                   </div>
                   <div className="card-tail">
                     <small>Total Withdraws</small>
@@ -110,12 +116,32 @@ const Dashboard = () => {
             <br />
             <div className="account-stats">
               <h3>
-                Number Of Your Referral: 0 <br /> Your Referral Link:
+                Number Of Your Referral: {UserState.referrals} <br /> Your
+                Referral Link:
               </h3>
               <div className="card-show">
                 <form action="">
-                  <input type="text" />
-                  <button>COPY TO CLIPBOARD</button>
+                  <input
+                    type="text"
+                    value={`http://localhost:3000/register/${UserState.referralId}`}
+                    disabled
+                  />
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigator.clipboard.writeText(
+                        `http://localhost:3000/register/${UserState.referralId}`
+                      );
+                      setToastifyState({
+                        ...ToastifyState,
+                        message: "Link copied to clipboard",
+                        variant: "success",
+                        open: true,
+                      });
+                    }}
+                  >
+                    COPY TO CLIPBOARD
+                  </button>
                 </form>
               </div>
             </div>

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import "../css/Navbar2.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CgMail } from "react-icons/cg";
 import { MdCall } from "react-icons/md";
 import { AiOutlineUserAdd, AiOutlineUser } from "react-icons/ai";
 import { BiDownArrow, BiUpArrow } from "react-icons/bi";
+import { UserContext } from "../context/UserContext";
 import logo from "../assets/logo.png";
 import Muinavbar2 from "./Muinavbar2";
 
@@ -13,6 +14,9 @@ const Navbar2 = () => {
   const [openButton, setOpenButton] = useState(true);
   const [openButton2, setOpenButton2] = useState(true);
   const [openButton3, setOpenButton3] = useState(true);
+  const [UserState, setUserState] = React.useContext(UserContext);
+
+  const navigate = useNavigate();
 
   const toggle = () => {
     setOpenButton(!openButton);
@@ -22,6 +26,12 @@ const Navbar2 = () => {
   };
   const toggle3 = () => {
     setOpenButton3(!openButton3);
+  };
+
+  const logout = () => {
+    localStorage.removeItem("user");
+    setUserState({});
+    navigate("/");
   };
 
   const [sticky, setSticky] = useState(false);
@@ -40,22 +50,28 @@ const Navbar2 = () => {
         <div>
           <span>
             <CgMail className="icon" />
-            financialfreedom680@gmail.com
+            mail@financialfreedominvestment.co
           </span>
           <span className="left">
             <MdCall className="icon" />
-            +2779 985 8789
+            +1 (213) 342-4014
           </span>
         </div>
         <div className="acc">
-          <Link to="/login">
-            <AiOutlineUser className="icon" />
-            Login
-          </Link>
-          <Link to="/register" className="left">
-            <AiOutlineUserAdd className="icon" />
-            Register
-          </Link>
+          {UserState.username ? (
+            <Link to="/dashboard">{UserState.username}</Link>
+          ) : (
+            <>
+              <Link to="/login">
+                <AiOutlineUser className="icon" />
+                Login
+              </Link>
+              <Link to="/register" className="left">
+                <AiOutlineUserAdd className="icon" />
+                Register
+              </Link>
+            </>
+          )}
         </div>
       </div>
       <div className="main-nav" id={sticky ? "sticky" : ""}>
@@ -171,7 +187,7 @@ const Navbar2 = () => {
               }}
               className="x"
             >
-              Hi User
+              Hi {UserState.username}
               <span>
                 {openButton3 ? (
                   <BiDownArrow className="icon" />
@@ -190,8 +206,8 @@ const Navbar2 = () => {
               <span>
                 <Link to="/support">Get Support</Link>
               </span>
-              <span>
-                <Link to="/login">Logout</Link>
+              <span onClick={logout} style={{ cursor: "pointer" }}>
+                <span>Logout</span>
               </span>
             </div>
           </li>

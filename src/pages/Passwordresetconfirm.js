@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import Background from "../components/Background";
 import "../css/General.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { Helmet } from "react-helmet";
 import { ToastifyContext } from "../context/ToastifyContext";
-import { forgotPassword } from "../data";
+import { resetPassword } from "../data";
 
-const Passwordreset = () => {
-  const [email, setEmail] = useState("");
+const Passwordresetconfirm = () => {
+  const [password, setPassword] = useState("");
+
+  const params = useParams();
+
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
   const [ToastifyState, setToastifyState] = React.useContext(ToastifyContext);
@@ -17,13 +21,23 @@ const Passwordreset = () => {
     e.preventDefault();
     setLoading(true);
 
-    let forgot = await forgotPassword({ email });
+    let reset = await resetPassword({ password }, params.id);
 
-    if (forgot.error) {
+    if (reset.error) {
       setLoading(false);
       return setToastifyState({
         ...ToastifyState,
-        message: forgot.message,
+        message: reset.message,
+        variant: "error",
+        open: true,
+      });
+    }
+
+    if (!reset) {
+      setLoading(false);
+      return setToastifyState({
+        ...ToastifyState,
+        message: "An error occurred, please try again",
         variant: "error",
         open: true,
       });
@@ -31,13 +45,13 @@ const Passwordreset = () => {
 
     setToastifyState({
       ...ToastifyState,
-      message: forgot.message,
+      message: reset.message,
       variant: "success",
       open: true,
     });
 
     setLoading(false);
-    setEmail("");
+    navigate("/login");
   };
 
   return (
@@ -47,25 +61,25 @@ const Passwordreset = () => {
       </Helmet>
       <Navbar />
       <div className="general-container">
-        <Background text="FORGOT PASSWORD" />
+        <Background text="RESET PASSWORD" />
         <div className="body">
           <form onSubmit={handleSubmit} className="signin-form">
-            <h2>FORGOT PASSWORD</h2>
+            <h2>RESET PASSWORD</h2>
             <div>
               <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your Email"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter your New Password"
                 required
               />
             </div>
             <button disabled={loading}>
-              {loading ? "LOADING..." : "SEND PASSWORD RESET LINK"}
+              {loading ? "LOADING..." : "RESET PASSWORD"}
             </button>
             <section style={{ marginTop: "20px" }}>
               <small>
-                <Link to="/login">Go back</Link>
+                <Link to="/login">GO TO LOGIN</Link>
               </small>
             </section>
           </form>
@@ -75,4 +89,4 @@ const Passwordreset = () => {
   );
 };
 
-export default Passwordreset;
+export default Passwordresetconfirm;
