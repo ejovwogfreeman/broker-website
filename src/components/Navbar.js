@@ -11,8 +11,6 @@ import { UserContext } from "../context/UserContext";
 import Muinavbar from "./Muinavbar";
 
 const Navbar = () => {
-  let user;
-
   const [UserState, setUserState] = React.useContext(UserContext);
   const [openButton, setOpenButton] = useState(true);
 
@@ -88,7 +86,7 @@ const Navbar = () => {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
-          {!user ? (
+          {!UserState.username ? (
             <li
               className="account"
               style={{
