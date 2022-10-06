@@ -35,9 +35,9 @@ export const loginUser = async (user) => {
   return login;
 };
 
-///////////////////
+/////////////////////////////
 ///////Change Password///////
-///////////////////
+/////////////////////////////
 
 export const changePassword = async (user, token) => {
   const res = await fetch("https://backend-tytc.onrender.com/api/users", {
@@ -52,9 +52,9 @@ export const changePassword = async (user, token) => {
   return login;
 };
 
-///////////////////
+/////////////////////////////
 ///////Forgot Password///////
-///////////////////
+/////////////////////////////
 
 export const forgotPassword = async (user) => {
   const res = await fetch(
@@ -71,9 +71,9 @@ export const forgotPassword = async (user) => {
   return forgot;
 };
 
-///////////////////
+////////////////////////////
 ///////Reset Password///////
-///////////////////
+////////////////////////////
 
 export const resetPassword = async (user, id) => {
   const res = await fetch(
@@ -89,4 +89,28 @@ export const resetPassword = async (user, id) => {
   );
   const reset = await res.json();
   return reset;
+};
+
+////////////////////////////
+///////Get single user///////
+////////////////////////////
+
+export const getUser = async (token) => {
+  const res = await fetch("http://localhost:8000/api/users/user", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "auth-token": token,
+    },
+  });
+  const user = await res.json();
+  return user;
+};
+
+/////////////////////////////
+/////////deposit/////////////
+/////////////////////////////
+
+export const userDeposit = async () => {
+  const res = await fetch();
 };

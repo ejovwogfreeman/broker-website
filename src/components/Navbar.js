@@ -157,7 +157,7 @@ const Navbar = () => {
                 }}
                 className="x"
               >
-                Hi User
+                Hi {UserState.username}
                 <span>
                   {openButton ? (
                     <BiDownArrow className="icon" />

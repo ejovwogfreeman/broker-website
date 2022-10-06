@@ -1,16 +1,37 @@
 import React from "react";
 import "../css/Modal.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FaTelegramPlane } from "react-icons/fa";
+import { UserContext } from "../context/UserContext";
+import { ToastifyContext } from "../context/ToastifyContext";
+import { BsFillArrowLeftCircleFill } from "react-icons/bs";
+import Withdraw from "../pages/Deposit";
 
 const Modalbtcdeposit = () => {
+  const [ToastifyState, setToastifyState] = React.useContext(ToastifyContext);
+  const [UserState, setUserState] = React.useContext(UserContext);
+  const params = useParams();
+
+  const [depositDetails, setDepositDetails] = React.useState({
+    method: params.method ? params.method : "btc",
+    amount: null,
+  });
+
   return (
     <div className="modal-container">
-      <div className="modal-box deposit" style={{ overflowY: "scroll" }}>
-        <h2>Deposit Using Bitcoin</h2>
+      <Link to="/deposit" className="nav-icon">
+        <BsFillArrowLeftCircleFill />
+      </Link>
+      <div className="modal-box deposit">
+        <h2>Deposit Using {depositDetails.method}</h2>
         <div>
           <h3>Wallet Address</h3>
-          <p>qwertyui12345678</p>
+          <p>
+            {depositDetails.method === "btc" && <>abcdqwertyuiop</>}
+            {depositDetails.method === "tether" && <>asdfjklmkljdhlklsghi</>}
+            {depositDetails.method === "etherium" && <>nklnlkajkdjopejpoje</>}
+            {depositDetails.method === "luno" && <>jkljakljkldgklsklsl</>}
+          </p>
         </div>
         <form>
           <h3>Amount Deposited</h3>
@@ -37,9 +58,6 @@ const Modalbtcdeposit = () => {
             dashboard will be updated within 24hours.
           </p>
         </div>
-        <Link to="/deposit" style={{ marginTop: "0px" }}>
-          Go back
-        </Link>
       </div>
     </div>
   );

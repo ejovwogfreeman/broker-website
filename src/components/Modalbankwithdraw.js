@@ -1,13 +1,29 @@
 import React from "react";
 import "../css/Modal.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FaTelegramPlane } from "react-icons/fa";
+import { UserContext } from "../context/UserContext";
+import { ToastifyContext } from "../context/ToastifyContext";
+import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 
 const Modalbankwithdraw = () => {
+  const [ToastifyState, setToastifyState] = React.useContext(ToastifyContext);
+  const [UserState, setUserState] = React.useContext(UserContext);
+  const params = useParams();
+
+  const [withdrawDetails, setWithdrawDetails] = React.useState({
+    method: params.method ? params.method : "bank",
+    amount: null,
+    address: null,
+  });
+
   return (
     <div className="modal-container">
-      <div className="modal-box deposit" style={{ overflowY: "scroll" }}>
-        <h2>Withdraw Using Bank Transfer</h2>
+      <Link to="/withdraw" className="nav-icon">
+        <BsFillArrowLeftCircleFill />
+      </Link>
+      <div className="modal-box deposit">
+        <h2>Withdraw Using {withdrawDetails.method}</h2>
         <br />
         <form>
           <h3>Withdrawal Amount</h3>
@@ -15,9 +31,21 @@ const Modalbankwithdraw = () => {
             <input type="number" placeholder="Withdrawal Amount" required />
           </div>
           <br />
-          <h3>Account Number</h3>
+          <h3>
+            {withdrawDetails.method === "bank"
+              ? "Account Number"
+              : "Wallet Address"}
+          </h3>
           <div>
-            <input type="text" required placeholder="Account Number" />
+            <input
+              type="text"
+              required
+              placeholder={
+                withdrawDetails.method === "bank"
+                  ? "Account Number"
+                  : "Wallet Address"
+              }
+            />
           </div>
           <br />
           <button>
@@ -33,9 +61,6 @@ const Modalbankwithdraw = () => {
             be processed and your dashboard will be updated within 24hours.
           </p>
         </div>
-        <Link to="/withdraw" style={{ marginTop: "0px" }}>
-          Go back
-        </Link>
       </div>
     </div>
   );

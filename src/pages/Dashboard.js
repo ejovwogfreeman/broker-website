@@ -1,19 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Background from "../components/Background";
 import "../css/General2.css";
-// import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 import Navbar2 from "../components/Navbar2";
 import { Helmet } from "react-helmet";
 import { FaRecycle, FaRegMoneyBillAlt } from "react-icons/fa";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 import { UserContext } from "../context/UserContext";
 import { ToastifyContext } from "../context/ToastifyContext";
+import { getUser } from "../data";
 import { TbArrowsDownUp } from "react-icons/tb";
 
 const Dashboard = () => {
   const [ToastifyState, setToastifyState] = React.useContext(ToastifyContext);
   const [UserState, setUserState] = React.useContext(UserContext);
-  console.log(UserState);
+
+  const navigate = useNavigate();
+
+  useEffect(async () => {
+    let user = localStorage.getItem("user");
+    user = JSON.parse(user);
+    // console.log(user);
+    if (user) return setUserState(user);
+    if (!UserState.username) {
+      return navigate("/login");
+    }
+  }, []);
 
   return (
     <>

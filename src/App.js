@@ -27,8 +27,8 @@ import Passwordreset from "./pages/Passwordreset";
 import Dashboard from "./pages/Dashboard";
 import InvestmentPackage from "./pages/InvestmentPackage";
 import Modalinveststarter from "./components/Modalinveststarter";
-import Modalinvestsilver from "./components/Modalinvestsilver";
-import Modalinvestgold from "./components/Modalinvestgold";
+// import Modalinvestsilver from "./components/Modalinvestsilver";
+// import Modalinvestgold from "./components/Modalinvestgold";
 import InvestmentHistory from "./pages/InvestmentHistory";
 import Deposit from "./pages/Deposit";
 import DepositHistory from "./pages/DepositHistory";
@@ -41,14 +41,14 @@ import Support from "./pages/Support";
 import SupportTicket from "./pages/SupportTicket";
 
 import Modalbtcdeposit from "./components/Modalbtcdeposit";
-import Modaltetherdeposit from "./components/Modaltetherdeposit";
-import Modaletheriumdeposit from "./components/Modaletheriumdeposit";
-import Modallunodeposit from "./components/Modallunodeposit";
+// import Modaltetherdeposit from "./components/Modaltetherdeposit";
+// import Modaletheriumdeposit from "./components/Modaletheriumdeposit";
+// import Modallunodeposit from "./components/Modallunodeposit";
 
 import Modalbankwithdraw from "./components/Modalbankwithdraw";
-import Modalbtcwithdraw from "./components/Modalbtcwithdraw";
-import Modallunowithdraw from "./components/Modallunowithdraw";
-import Modaltetherwithdraw from "./components/Modaltetherwithdraw";
+// import Modalbtcwithdraw from "./components/Modalbtcwithdraw";
+// import Modallunowithdraw from "./components/Modallunowithdraw";
+// import Modaltetherwithdraw from "./components/Modaltetherwithdraw";
 
 import ToastifyComponent from "./context/ToastifyContext";
 import UserComponent from "./context/UserContext";
@@ -116,20 +116,11 @@ function App() {
               path="/investment-package"
               element={<InvestmentPackage />}
             />
+            <Route exact path="/investment" element={<Modalinveststarter />} />
             <Route
               exact
-              path="/investment-starter"
+              path="/investment/:plan"
               element={<Modalinveststarter />}
-            />
-            <Route
-              exact
-              path="/investment-silver"
-              element={<Modalinvestsilver />}
-            />
-            <Route
-              exact
-              path="/investment-gold"
-              element={<Modalinvestgold />}
             />
             <Route
               exact
@@ -149,8 +140,12 @@ function App() {
             <Route exact path="/change-password" element={<Passwordchange />} />
             <Route exact path="/support" element={<Support />} />
             <Route exact path="/support-open" element={<SupportTicket />} />
-            <Route exact path="/btc-deposit" element={<Modalbtcdeposit />} />
             <Route
+              exact
+              path="/deposit/:method"
+              element={<Modalbtcdeposit />}
+            />
+            {/* <Route
               exact
               path="/tether-deposit"
               element={<Modaltetherdeposit />}
@@ -160,13 +155,13 @@ function App() {
               path="/etherium-deposit"
               element={<Modaletheriumdeposit />}
             />
-            <Route exact path="/luno-deposit" element={<Modallunodeposit />} />
+            <Route exact path="/luno-deposit" element={<Modallunodeposit />} /> */}
             <Route
               exact
-              path="/bank-withdraw"
+              path="/withdraw/:method"
               element={<Modalbankwithdraw />}
             />
-            <Route exact path="/btc-withdraw" element={<Modalbtcwithdraw />} />
+            {/* <Route exact path="/btc-withdraw" element={<Modalbtcwithdraw />} />
             <Route
               exact
               path="/luno-withdraw"
@@ -176,7 +171,7 @@ function App() {
               exact
               path="/tether-withdraw"
               element={<Modaltetherwithdraw />}
-            />
+            /> */}
             <Route exact path="*" element={<Notfound />} />
           </Routes>
           <Payment />
