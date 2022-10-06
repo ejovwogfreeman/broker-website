@@ -9,6 +9,7 @@ import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 import { UserContext } from "../context/UserContext";
 import logo from "../assets/logo.png";
 import Muinavbar2 from "./Muinavbar2";
+// import Muinavbar from "./Muinavbar";
 
 const Navbar2 = () => {
   const [openButton, setOpenButton] = useState(true);

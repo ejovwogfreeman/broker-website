@@ -11,13 +11,23 @@ import {
   AiOutlineUserDelete,
 } from "react-icons/ai";
 import { GoDashboard } from "react-icons/go";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../css/Navbar.css";
 import { UserContext } from "../context/UserContext";
 
 const Muinavbar = () => {
   const [UserState, setUserState] = React.useContext(UserContext);
   const [openDrawer, setOpenDrawer] = useState(false);
+
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("user");
+    setUserState({});
+    setOpenDrawer(false);
+    navigate("/");
+  };
+
   return (
     <div className="mobile-nav">
       <IconButton
@@ -95,10 +105,10 @@ const Muinavbar = () => {
                   </Link>
                 </li>
                 <li className="li x">
-                  <Link to="/login" onClick={() => setOpenDrawer(false)}>
+                  <span onClick={logout} style={{ cursor: "pointer" }}>
                     <AiOutlineUserDelete style={{ marginRight: "10px" }} />
                     Logout
-                  </Link>
+                  </span>
                 </li>
               </>
             )}

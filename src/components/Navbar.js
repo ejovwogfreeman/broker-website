@@ -170,8 +170,8 @@ const Navbar = () => {
                 <span>
                   <Link to="/dashboard">Dashboard</Link>
                 </span>
-                <span>
-                  <Link to="/login">Logout</Link>
+                <span onClick={logout} style={{ cursor: "pointer" }}>
+                  <span>Logout</span>
                 </span>
               </div>
             </li>

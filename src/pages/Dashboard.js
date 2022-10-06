@@ -25,6 +25,9 @@ const Dashboard = () => {
     if (!UserState.username) {
       return navigate("/login");
     }
+    if (!UserState.user) {
+      return navigate("/login");
+    }
   }, []);
 
   return (
