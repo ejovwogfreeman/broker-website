@@ -1,16 +1,18 @@
-const jwt = require('jsonwebtoken')
+const jwt = require("jsonwebtoken");
 
 module.exports = (req, res, next) => {
-    const token = req.header("auth-token");
-    if(!token) {
-        return res.status(400).json({message: "Please Login First."})
-    }
+  const token = req.header("auth-token");
+  if (!token) {
+    return res
+      .status(400)
+      .json({ message: "Please Login First.", error: true });
+  }
 
-    try {
-        const verified = jwt.verify(token, process.env.JWT_SECRET)
-        req.user = verified
-        next()
-    } catch(err) {
-        res.status(400).json(err)
-    }
-}
+  try {
+    const verified = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = verified;
+    next();
+  } catch (err) {
+    res.status(400).json(err);
+  }
+};
