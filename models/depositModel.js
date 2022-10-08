@@ -19,9 +19,12 @@ const depositSchema = new mongoose.Schema(
       default: null,
       enum: ["Bitcoin", "Tether", "Etherium", "Luno"],
     },
-    // proof: {
-
-    // },
+    proof: [Object],
+    status: {
+      type: String,
+      default: "pending",
+      enum: ["pending", "processing", "confirmed", "failed", "declined"],
+    },
   },
   {
     timestamps: true,

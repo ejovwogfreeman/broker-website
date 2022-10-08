@@ -10,6 +10,9 @@ const transactionSchema = new mongoose.Schema(
       username: String,
       email: String,
     },
+    transaction: {
+      type: mongoose.Schema.Types.ObjectId,
+    },
     type: {
       type: String,
       requied: true,

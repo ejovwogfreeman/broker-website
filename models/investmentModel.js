@@ -19,6 +19,11 @@ const investmentSchema = new mongoose.Schema(
       default: "Starter Plan",
       enum: ["Starter Plan", "Silver Plan", "Gold Plan"],
     },
+    status: {
+      type: String,
+      default: "pending",
+      enum: ["pending", "processing", "confirmed", "failed", "declined"],
+    },
   },
   {
     timestamps: true,

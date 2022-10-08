@@ -1,6 +1,11 @@
 const nodemailer = require("nodemailer");
 const EmailModel = require("../models/emailModel");
 const User = require("../models/userModel");
+const fs = require("fs");
+
+const { promisify } = require("util");
+
+const readFile = promisify(fs.readFile);
 
 const email = async (reciever, subject, body) => {
   let transporter = nodemailer.createTransport({
@@ -17,7 +22,7 @@ const email = async (reciever, subject, body) => {
     from: '"Financial Freedom Investment" <mail@financialfreedominvestment.co>',
     to: reciever,
     subject: subject,
-    html: body,
+    html: await readFile(`helpers/${body}`, "utf8"),
   });
 
   let user = await User.findOne({ email: reciever });
