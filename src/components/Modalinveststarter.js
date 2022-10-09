@@ -1,21 +1,57 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../css/Modal.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { FaTelegramPlane } from "react-icons/fa";
 import { GiCheckMark } from "react-icons/gi";
 import { UserContext } from "../context/UserContext";
 import { ToastifyContext } from "../context/ToastifyContext";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
+import { makeInvestment, getUser } from "../data";
 
 const Modalinveststarter = () => {
   const [ToastifyState, setToastifyState] = React.useContext(ToastifyContext);
+  const [loading, setLoading] = React.useState(false);
   const [UserState, setUserState] = React.useContext(UserContext);
   const params = useParams();
+  const navigate = useNavigate();
 
   const [planDetails, setPlanDetails] = React.useState({
-    plan: params.plan ? params.plan : "starter",
+    plan: params.plan ? params.plan : "Starter Plan",
     amount: null,
   });
+
+  const handleSubmit = async () => {
+    setLoading(true);
+
+    let Investment = await makeInvestment(UserState.token, planDetails);
+
+    if (Investment.error) {
+      setLoading(false);
+      return setToastifyState({
+        ...ToastifyState,
+        message: Investment.message,
+        variant: "error",
+        open: true,
+      });
+    }
+
+    setToastifyState({
+      ...ToastifyState,
+      message: "Investment Successful, an email has been sent to you.",
+      variant: "success",
+      open: true,
+    });
+
+    setLoading(false);
+    setPlanDetails({ ...planDetails, amount: null });
+    navigate("/dashboard", { state: "reload" });
+  };
+
+  useEffect(() => {
+    if (params.plan) {
+      setPlanDetails({ ...planDetails, plan: params.plan });
+    }
+  }, [params]);
 
   return (
     <div className="modal-container">
@@ -23,7 +59,7 @@ const Modalinveststarter = () => {
         <BsFillArrowLeftCircleFill />
       </Link>
       <div className="modal-box deposit">
-        <h2>Investment On {planDetails.plan} Plan</h2>
+        <h2>Investment On {planDetails.plan}</h2>
         <div>
           <h3>Your Balance</h3>
           <p>${UserState.balance}</p>
@@ -31,9 +67,15 @@ const Modalinveststarter = () => {
         <form>
           <h3>Investment Range</h3>
           <p>
-            {planDetails.plan === "starter" && <>300.00 USD - 75000.00 USD</>}
-            {planDetails.plan === "silver" && <>75000.00 USD - 100000.00 USD</>}
-            {planDetails.plan === "gold" && <>100000.00 USD - 1250000.00 USD</>}
+            {planDetails.plan.toLowerCase().includes("starter") && (
+              <>300.00 USD - 75000.00 USD</>
+            )}
+            {planDetails.plan.toLowerCase().includes("silver") && (
+              <>75000.00 USD - 100000.00 USD</>
+            )}
+            {planDetails.plan.toLowerCase().includes("gold") && (
+              <>100000.00 USD - 1250000.00 USD</>
+            )}
           </p>
           <div>
             <h3>Amount To Invest</h3>
@@ -45,7 +87,18 @@ const Modalinveststarter = () => {
                 setPlanDetails({ ...planDetails, amount: e.target.value })
               }
               required
-            />
+            />{" "}
+            <br /> <br />
+            <select
+              onChange={(e) => {
+                navigate(`/investment/${e.target.value}`);
+              }}
+              value={params.plan ? params.plan : "Starter Plan"}
+            >
+              <option value={"Starter Plan"}>Starter Plan</option>
+              <option value={"Silver Plan"}>Silver Plan</option>
+              <option value={"Gold Plan"}>Gold Plan</option>
+            </select>
           </div>
           <br />
           <div
@@ -75,9 +128,10 @@ const Modalinveststarter = () => {
               }}
             >
               <GiCheckMark />
-              &nbsp;Comission - {planDetails.plan === "starter" && <>150%</>}
-              {planDetails.plan === "silver" && <>200%</>}
-              {planDetails.plan === "gold" && <>300%</>}
+              &nbsp;Comission -{" "}
+              {planDetails.plan.toLowerCase().includes("starter") && <>150%</>}
+              {planDetails.plan.toLowerCase().includes("silver") && <>200%</>}
+              {planDetails.plan.toLowerCase().includes("gold") && <>300%</>}
             </p>
             <p
               style={{
@@ -100,9 +154,8 @@ const Modalinveststarter = () => {
             </p>
           </div>
           <br />
-          <button>
-            {" "}
-            <FaTelegramPlane /> Invest
+          <button onClick={handleSubmit} disabled={loading}>
+            <FaTelegramPlane /> {loading ? "LOADING..." : "INVEST"}
           </button>
         </form>
         <br />

@@ -28,7 +28,7 @@ const Withdraw = () => {
             <div>
               <img src={cryp1} alt="" style={{ margin: "10px" }} width="90%" />
               <p className="last">
-                <Link to="/deposit/btc">ADD FUND</Link>
+                <Link to="/deposit/Bitcoin">ADD FUND</Link>
               </p>
             </div>
           </div>
@@ -37,7 +37,7 @@ const Withdraw = () => {
             <div>
               <img src={cryp2} alt="" style={{ margin: "10px" }} width="90%" />
               <p className="last">
-                <Link to="/deposit/tether">ADD FUND</Link>
+                <Link to="/deposit/Tether">ADD FUND</Link>
               </p>
             </div>
           </div>
@@ -46,7 +46,7 @@ const Withdraw = () => {
             <div>
               <img src={cryp3} alt="" style={{ margin: "10px" }} width="90%" />
               <p className="last" style={{ marginTop: "18%" }}>
-                <Link to="/deposit/etherium">ADD FUND</Link>
+                <Link to="/deposit/Etherium">ADD FUND</Link>
               </p>
             </div>
           </div>
@@ -55,7 +55,7 @@ const Withdraw = () => {
             <div>
               <img src={cryp4} alt="" style={{ margin: "10px" }} width="90%" />
               <p className="last">
-                <Link to="/deposit/luno">ADD FUND</Link>
+                <Link to="/deposit/Luno">ADD FUND</Link>
               </p>
             </div>
           </div>

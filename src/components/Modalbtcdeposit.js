@@ -1,21 +1,57 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../css/Modal.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { FaTelegramPlane } from "react-icons/fa";
 import { UserContext } from "../context/UserContext";
 import { ToastifyContext } from "../context/ToastifyContext";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
-import Withdraw from "../pages/Deposit";
+import { makeDeposit, getUser } from "../data";
 
 const Modalbtcdeposit = () => {
   const [ToastifyState, setToastifyState] = React.useContext(ToastifyContext);
+  const [loading, setLoading] = React.useState(false);
   const [UserState, setUserState] = React.useContext(UserContext);
   const params = useParams();
+  const navigate = useNavigate();
 
   const [depositDetails, setDepositDetails] = React.useState({
-    method: params.method ? params.method : "btc",
+    method: params.method ? params.method : "Bitcoin",
     amount: null,
+    file: null,
   });
+
+  const handleSubmit = async () => {
+    setLoading(true);
+
+    let Deposit = await makeDeposit(UserState.token, depositDetails);
+
+    if (Deposit.error) {
+      setLoading(false);
+      return setToastifyState({
+        ...ToastifyState,
+        message: Deposit.message,
+        variant: "error",
+        open: true,
+      });
+    }
+
+    setToastifyState({
+      ...ToastifyState,
+      message: "Deposit Successful, an email has been sent to you.",
+      variant: "success",
+      open: true,
+    });
+
+    setLoading(false);
+    setDepositDetails({ ...depositDetails, amount: null });
+    navigate("/dashboard", { state: "reload" });
+  };
+
+  useEffect(() => {
+    if (params.method) {
+      setDepositDetails({ ...depositDetails, method: params.method });
+    }
+  }, [params]);
 
   return (
     <div className="modal-container">
@@ -27,26 +63,58 @@ const Modalbtcdeposit = () => {
         <div>
           <h3>Wallet Address</h3>
           <p>
-            {depositDetails.method === "btc" && <>abcdqwertyuiop</>}
-            {depositDetails.method === "tether" && <>asdfjklmkljdhlklsghi</>}
-            {depositDetails.method === "etherium" && <>nklnlkajkdjopejpoje</>}
-            {depositDetails.method === "luno" && <>jkljakljkldgklsklsl</>}
+            {depositDetails.method === "Bitcoin" && <>abcdqwertyuiop</>}
+            {depositDetails.method === "Tether" && <>asdfjklmkljdhlklsghi</>}
+            {depositDetails.method === "Etherium" && <>nklnlkajkdjopejpoje</>}
+            {depositDetails.method === "Luno" && <>jkljakljkldgklsklsl</>}
           </p>
         </div>
         <form>
           <h3>Amount Deposited</h3>
           <div>
-            <input type="number" placeholder="Amount Deposited" required />
+            <input
+              type="number"
+              placeholder="Amount Deposited"
+              value={depositDetails.amount}
+              required
+              onChange={(e) =>
+                setDepositDetails({
+                  ...depositDetails,
+                  amount: e.target.value,
+                })
+              }
+            />
           </div>
           <br />
+          <select
+            onChange={(e) => {
+              navigate(`/deposit/${e.target.value}`);
+            }}
+            value={params.method ? params.method : "Bitcoin"}
+          >
+            <option value={"Bitcoin"}>Bitcoin</option>
+            <option value={"Tether"}>Tether</option>
+            <option value={"Etherium"}>Etherium</option>
+            <option value={"Luno"}>Luno</option>
+          </select>
+          <br /> <br />
           <h3>Deposit Proof</h3>
           <div>
-            <input type="file" required />
+            <input
+              type="file"
+              value={depositDetails.file}
+              required
+              onChange={(e) =>
+                setDepositDetails({
+                  ...depositDetails,
+                  file: e.target.value,
+                })
+              }
+            />
           </div>
           <br />
-          <button>
-            {" "}
-            <FaTelegramPlane /> Submit
+          <button onClick={handleSubmit} disabled={loading}>
+            <FaTelegramPlane /> {loading ? "LOADING..." : "DEPOSIT"}
           </button>
         </form>
         <br />

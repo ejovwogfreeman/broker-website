@@ -54,6 +54,7 @@ import ToastifyComponent from "./context/ToastifyContext";
 import UserComponent from "./context/UserContext";
 import Toastify from "./components/Toastify";
 import Passwordresetconfirm from "./pages/Passwordresetconfirm";
+import TransactionComponent from "./context/transactionContext";
 
 function App() {
   const [show, setShow] = useState(-100);
@@ -92,60 +93,77 @@ function App() {
 
   return (
     <UserComponent>
-      <ToastifyComponent className="App">
-        <Toastify />
-        <Router>
-          <ScrollToTop />
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/faqs" element={<Faq />} />
-            <Route exact path="/Contact" element={<Contact />} />
-            <Route exact path="/login" element={<Signin />} />
-            <Route exact path="/register" element={<Signup />} />
-            <Route exact path="/register/:ref" element={<Signup />} />
-            <Route
-              exact
-              path="/reset-password/:id"
-              element={<Passwordresetconfirm />}
-            />
-            <Route exact path="/forgot-password" element={<Passwordreset />} />
-            <Route exact path="/dashboard" element={<Dashboard />} />
-            <Route
-              exact
-              path="/investment-package"
-              element={<InvestmentPackage />}
-            />
-            <Route exact path="/investment" element={<Modalinveststarter />} />
-            <Route
-              exact
-              path="/investment/:plan"
-              element={<Modalinveststarter />}
-            />
-            <Route
-              exact
-              path="/investment-history"
-              element={<InvestmentHistory />}
-            />
-            <Route exact path="/deposit" element={<Deposit />} />
-            <Route exact path="/deposit-history" element={<DepositHistory />} />
-            <Route exact path="/withdraw" element={<Withdraw />} />
-            <Route
-              exact
-              path="/withdraw-history"
-              element={<WithdrawHistory />}
-            />
-            <Route exact path="/transaction" element={<Transaction />} />
-            <Route exact path="/edit-profile" element={<Editprofile />} />
-            <Route exact path="/change-password" element={<Passwordchange />} />
-            <Route exact path="/support" element={<Support />} />
-            <Route exact path="/support-open" element={<SupportTicket />} />
-            <Route
-              exact
-              path="/deposit/:method"
-              element={<Modalbtcdeposit />}
-            />
-            {/* <Route
+      <TransactionComponent>
+        <ToastifyComponent className="App">
+          <Toastify />
+          <Router>
+            <ScrollToTop />
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/about" element={<About />} />
+              <Route exact path="/faqs" element={<Faq />} />
+              <Route exact path="/Contact" element={<Contact />} />
+              <Route exact path="/login" element={<Signin />} />
+              <Route exact path="/register" element={<Signup />} />
+              <Route exact path="/register/:ref" element={<Signup />} />
+              <Route
+                exact
+                path="/reset-password/:id"
+                element={<Passwordresetconfirm />}
+              />
+              <Route
+                exact
+                path="/forgot-password"
+                element={<Passwordreset />}
+              />
+              <Route exact path="/dashboard" element={<Dashboard />} />
+              <Route
+                exact
+                path="/investment-package"
+                element={<InvestmentPackage />}
+              />
+              <Route
+                exact
+                path="/investment"
+                element={<Modalinveststarter />}
+              />
+              <Route
+                exact
+                path="/investment/:plan"
+                element={<Modalinveststarter />}
+              />
+              <Route
+                exact
+                path="/investment-history"
+                element={<InvestmentHistory />}
+              />
+              <Route exact path="/deposit" element={<Deposit />} />
+              <Route
+                exact
+                path="/deposit-history"
+                element={<DepositHistory />}
+              />
+              <Route exact path="/withdraw" element={<Withdraw />} />
+              <Route
+                exact
+                path="/withdraw-history"
+                element={<WithdrawHistory />}
+              />
+              <Route exact path="/transaction" element={<Transaction />} />
+              <Route exact path="/edit-profile" element={<Editprofile />} />
+              <Route
+                exact
+                path="/change-password"
+                element={<Passwordchange />}
+              />
+              <Route exact path="/support" element={<Support />} />
+              <Route exact path="/support-open" element={<SupportTicket />} />
+              <Route
+                exact
+                path="/deposit/:method"
+                element={<Modalbtcdeposit />}
+              />
+              {/* <Route
               exact
               path="/tether-deposit"
               element={<Modaltetherdeposit />}
@@ -156,12 +174,12 @@ function App() {
               element={<Modaletheriumdeposit />}
             />
             <Route exact path="/luno-deposit" element={<Modallunodeposit />} /> */}
-            <Route
-              exact
-              path="/withdraw/:method"
-              element={<Modalbankwithdraw />}
-            />
-            {/* <Route exact path="/btc-withdraw" element={<Modalbtcwithdraw />} />
+              <Route
+                exact
+                path="/withdraw/:method"
+                element={<Modalbankwithdraw />}
+              />
+              {/* <Route exact path="/btc-withdraw" element={<Modalbtcwithdraw />} />
             <Route
               exact
               path="/luno-withdraw"
@@ -172,28 +190,34 @@ function App() {
               path="/tether-withdraw"
               element={<Modaltetherwithdraw />}
             /> */}
-            <Route exact path="*" element={<Notfound />} />
-          </Routes>
-          <Payment />
-          <Footer />
+              <Route exact path="*" element={<Notfound />} />
+            </Routes>
+            <Payment />
+            <Footer />
 
-          <Box
-            sx={{
-              "& > :not(style)": {
-                m: 1,
-                position: "fixed",
-                bottom: show,
-                right: 20,
-                transition: "all 1s",
-              },
-            }}
-          >
-            <Fab size="medium" color="#2351DC;" aria-label="top" onClick={goUp}>
-              <KeyboardArrowUpRoundedIcon sx={{ fontSize: 30 }} />
-            </Fab>
-          </Box>
-        </Router>
-      </ToastifyComponent>
+            <Box
+              sx={{
+                "& > :not(style)": {
+                  m: 1,
+                  position: "fixed",
+                  bottom: show,
+                  right: 20,
+                  transition: "all 1s",
+                },
+              }}
+            >
+              <Fab
+                size="medium"
+                color="#2351DC;"
+                aria-label="top"
+                onClick={goUp}
+              >
+                <KeyboardArrowUpRoundedIcon sx={{ fontSize: 30 }} />
+              </Fab>
+            </Box>
+          </Router>
+        </ToastifyComponent>
+      </TransactionComponent>
     </UserComponent>
   );
 }

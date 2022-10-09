@@ -39,7 +39,7 @@ const InvestmentPackage = ({ modal, openModal }) => {
                 &nbsp;Term - Monthly
               </p>
               <p className="last">
-                <Link to="/investment/starter">
+                <Link to="/investment/Starter Plan">
                   <FaTelegramPlane />
                   &nbsp;Invest Under This Package
                 </Link>
@@ -67,7 +67,7 @@ const InvestmentPackage = ({ modal, openModal }) => {
                 &nbsp;Term - Monthly
               </p>
               <p className="last">
-                <Link to="/investment/silver">
+                <Link to="/investment/Silver Plan">
                   <FaTelegramPlane />
                   &nbsp;Invest Under This Package
                 </Link>
@@ -95,7 +95,7 @@ const InvestmentPackage = ({ modal, openModal }) => {
                 &nbsp;Term - Monthly
               </p>
               <p className="last">
-                <Link to="/investment/gold">
+                <Link to="/investment/Gold Plan">
                   <FaTelegramPlane />
                   &nbsp;Invest Under This Package
                 </Link>
