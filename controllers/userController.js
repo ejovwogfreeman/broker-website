@@ -438,70 +438,6 @@ const userDeposit = async (req, res) => {
   }
 };
 
-////////////////////////////////////
-///////////process Deposit//////////
-////////////////////////////////////
-
-const processDeposit = async (req, res) => {
-  const { id } = req.body;
-  const deposit = await Deposit.findByIdAndUpdate(id, {
-    status: "processing",
-  });
-  const transaction = await Transaction.findOneAndUpdate(
-    { transaction: deposit.id },
-    {
-      status: "processing",
-    }
-  );
-  res.status(200).json("processing Successfully");
-};
-
-////////////////////////////////////
-///////////Confirm Deposit//////////
-////////////////////////////////////
-
-const confirmDeposit = async (req, res) => {
-  const { id } = req.body;
-  const deposit = await Deposit.findByIdAndUpdate(id, {
-    status: "confirmed",
-  });
-  const transaction = await Transaction.findOneAndUpdate(
-    { transaction: deposit.id },
-    {
-      status: "confirmed",
-    }
-  );
-
-  let userid = transaction.user.id;
-
-  const user = await User.findById(userid);
-
-  const bal = Number(user.balance) + Number(deposit.amount);
-
-  await User.findByIdAndUpdate(userid, {
-    balance: Number(bal),
-  });
-  res.status(200).json("Confirmed Successfully");
-};
-
-////////////////////////////////////
-///////////decline Deposit//////////
-////////////////////////////////////
-
-const declineDeposit = async (req, res) => {
-  const { id } = req.body;
-  const deposit = await Deposit.findByIdAndUpdate(id, {
-    status: "declined",
-  });
-  const transaction = await Transaction.findOneAndUpdate(
-    { transaction: deposit.id },
-    {
-      status: "declined",
-    }
-  );
-  res.status(200).json("declined Successfully");
-};
-
 /////////////////////////////
 ///////////Withdraw//////////
 /////////////////////////////
@@ -620,12 +556,6 @@ module.exports = {
   resetPassword,
   forgotPasword,
   getUser,
-  confirmDeposit,
-  processDeposit,
-  declineDeposit,
-  processWithdraw,
-  confirmWithdraw,
-  declineWithdraw,
   getTransaction,
   getTransactions,
   getDeposit,

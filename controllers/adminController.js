@@ -125,3 +125,12 @@ const declineDeposit = async (req, res) => {
   );
   res.status(200).json("declined Successfully");
 };
+
+module.exports = {
+  confirmDeposit,
+  processDeposit,
+  declineDeposit,
+  processWithdraw,
+  confirmWithdraw,
+  declineWithdraw,
+};

@@ -12,12 +12,6 @@ const {
   forgotPasword,
   getUser,
   userDeposit,
-  confirmDeposit,
-  processDeposit,
-  declineDeposit,
-  processWithdraw,
-  confirmWithdraw,
-  declineWithdraw,
   userWithdraw,
   getTransaction,
   getTransactions,
@@ -28,6 +22,14 @@ const {
   getInvestment,
   getInvestments,
 } = require("../controllers/userController");
+const {
+  confirmDeposit,
+  processDeposit,
+  declineDeposit,
+  processWithdraw,
+  confirmWithdraw,
+  declineWithdraw,
+} = require("../controllers/adminController");
 const { upload } = require("../config/file");
 
 router.post("/register", registerUser);
