@@ -104,7 +104,7 @@ const getUsers = async (req, res) => {
 ///////////////////////////
 
 const getUser = async (req, res) => {
-  res.status(200).json(req.user);
+  res.status(200).json(req.user.user);
 };
 
 //////////////////////////
