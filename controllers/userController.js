@@ -507,13 +507,14 @@ const declineDeposit = async (req, res) => {
 /////////////////////////////
 
 const userWithdraw = async (req, res) => {
-  let user = await User.findById(id);
-
-  let { amount } = req.body;
   const { email, username, id } = req.user;
+
+  let user = await User.findById(id);
+  console.log(user.balance);
+  let { amount } = req.body;
   amount = Number(amount);
 
-  if (amount > user.balance || balance === 0) {
+  if (amount > user.balance || user.balance === 0) {
     return res
       .status(400)
       .json({ message: "You do not have sufficient balance." });
@@ -586,70 +587,6 @@ const resetPassword = async (req, res, next) => {
   res
     .status(400)
     .json({ error: true, message: "An error occcurred, please try again" });
-};
-
-////////////////////////////////////
-///////////process Withdraw/////////
-////////////////////////////////////
-
-const processWithdraw = async (req, res) => {
-  const { id } = req.body;
-  const withdraw = await Withdrawal.findByIdAndUpdate(id, {
-    status: "processing",
-  });
-  const transaction = await Transaction.findOneAndUpdate(
-    { transaction: withdraw.id },
-    {
-      status: "processing",
-    }
-  );
-  res.status(200).json("processing Successfully");
-};
-
-////////////////////////////////////
-///////////Confirm Withdraw//////////
-////////////////////////////////////
-
-const confirmWithdraw = async (req, res) => {
-  const { id } = req.body;
-  const withdraw = await Withdrawal.findByIdAndUpdate(id, {
-    status: "confirmed",
-  });
-  const transaction = await Transaction.findOneAndUpdate(
-    { transaction: withdraw.id },
-    {
-      status: "confirmed",
-    }
-  );
-
-  let userid = transaction.user.id;
-
-  const user = await User.findById(userid);
-
-  const bal = Number(user.balance) - Number(withdraw.amount);
-
-  await User.findByIdAndUpdate(userid, {
-    balance: Number(bal),
-  });
-  res.status(200).json("Confirmed Successfully");
-};
-
-////////////////////////////////////
-///////////decline Withdraw/////////
-////////////////////////////////////
-
-const declineWithdraw = async (req, res) => {
-  const { id } = req.body;
-  const withdraw = await Withdrawal.findByIdAndUpdate(id, {
-    status: "declined",
-  });
-  const transaction = await Transaction.findOneAndUpdate(
-    { transaction: withdraw.id },
-    {
-      status: "declined",
-    }
-  );
-  res.status(200).json("declined Successfully");
 };
 
 ////////////////////////////////////
