@@ -44,7 +44,7 @@ const Modalinveststarter = () => {
 
     setLoading(false);
     setPlanDetails({ ...planDetails, amount: null });
-    navigate("/dashboard", { state: "reload" });
+    navigate("/", { state: "reload" });
   };
 
   useEffect(() => {

@@ -3,16 +3,13 @@
 ///////////////////
 
 export const registerUser = async (user) => {
-  const res = await fetch(
-    "https://backend-tytc.onrender.com/api/users/register",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    }
-  );
+  const res = await fetch("http://localhost:8000/api/users/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  });
 
   const register = res.json();
 
@@ -24,7 +21,7 @@ export const registerUser = async (user) => {
 ///////////////////
 
 export const loginUser = async (user) => {
-  const res = await fetch("https://backend-tytc.onrender.com/api/users/login", {
+  const res = await fetch("http://localhost:8000/api/users/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -40,7 +37,7 @@ export const loginUser = async (user) => {
 /////////////////////////////
 
 export const changePassword = async (user, token) => {
-  const res = await fetch("https://backend-tytc.onrender.com/api/users", {
+  const res = await fetch("http://localhost:8000/api/users/update-user", {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -57,16 +54,13 @@ export const changePassword = async (user, token) => {
 /////////////////////////////
 
 export const forgotPassword = async (user) => {
-  const res = await fetch(
-    "https://backend-tytc.onrender.com/api/users/forgot-password",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    }
-  );
+  const res = await fetch("http://localhost:8000/api/users/forgot-password", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  });
   const forgot = await res.json();
   return forgot;
 };
@@ -76,19 +70,32 @@ export const forgotPassword = async (user) => {
 ////////////////////////////
 
 export const resetPassword = async (user, id) => {
-  const res = await fetch(
-    "https://backend-tytc.onrender.com/api/users/reset-password",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        userid: id,
-      },
-      body: JSON.stringify(user),
-    }
-  );
+  const res = await fetch("http://localhost:8000/api/users/reset-password", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      userid: id,
+    },
+    body: JSON.stringify(user),
+  });
   const reset = await res.json();
   return reset;
+};
+
+///////////////////////////////
+///////edit user profile///////
+///////////////////////////////
+
+export const updateUser = async (user, token) => {
+  const res = await fetch("http://localhost:8000/api/users/update-user", {
+    method: "PATCH",
+    headers: {
+      "auth-token": token,
+    },
+    body: user,
+  });
+  const update = await res.json();
+  return update;
 };
 
 ////////////////////////////
@@ -211,10 +218,9 @@ export const makeDeposit = async (token, deposit) => {
   const res = await fetch("http://localhost:8000/api/users/deposit", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
       "auth-token": token,
     },
-    body: JSON.stringify(deposit),
+    body: deposit,
   });
   const makedep = await res.json();
   return makedep;

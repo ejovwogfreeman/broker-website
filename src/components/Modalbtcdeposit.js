@@ -17,13 +17,20 @@ const Modalbtcdeposit = () => {
   const [depositDetails, setDepositDetails] = React.useState({
     method: params.method ? params.method : "Bitcoin",
     amount: null,
-    file: null,
+    file: [],
   });
 
   const handleSubmit = async () => {
     setLoading(true);
+    // console.log(depositDetails);
 
-    let Deposit = await makeDeposit(UserState.token, depositDetails);
+    let formData = new FormData();
+
+    formData.append("files", depositDetails.file[0]);
+    formData.append("amount", depositDetails.amount);
+    formData.append("mode", depositDetails.method);
+
+    let Deposit = await makeDeposit(UserState.token, formData);
 
     if (Deposit.error) {
       setLoading(false);
@@ -63,10 +70,18 @@ const Modalbtcdeposit = () => {
         <div>
           <h3>Wallet Address</h3>
           <p>
-            {depositDetails.method === "Bitcoin" && <>abcdqwertyuiop</>}
-            {depositDetails.method === "Tether" && <>asdfjklmkljdhlklsghi</>}
-            {depositDetails.method === "Etherium" && <>nklnlkajkdjopejpoje</>}
-            {depositDetails.method === "Luno" && <>jkljakljkldgklsklsl</>}
+            {depositDetails.method === "Bitcoin" && (
+              <>3Nww1SGjVnrm4GFy2RHDxv3DZpNaYTrrbx</>
+            )}
+            {depositDetails.method === "Tether" && (
+              <>3Nww1SGjVnrm4GFy2RHDxv3DZpNaYTrrbx</>
+            )}
+            {depositDetails.method === "Etherium" && (
+              <>3Nww1SGjVnrm4GFy2RHDxv3DZpNaYTrrbx</>
+            )}
+            {depositDetails.method === "Luno" && (
+              <>3Nww1SGjVnrm4GFy2RHDxv3DZpNaYTrrbx</>
+            )}
           </p>
         </div>
         <form>
@@ -102,12 +117,12 @@ const Modalbtcdeposit = () => {
           <div>
             <input
               type="file"
-              value={depositDetails.file}
+              accept="image/*"
               required
               onChange={(e) =>
                 setDepositDetails({
                   ...depositDetails,
-                  file: e.target.value,
+                  file: e.target.files,
                 })
               }
             />

@@ -15,7 +15,7 @@ const Modalbankwithdraw = () => {
   const navigate = useNavigate();
 
   const [withdrawDetails, setWithdrawDetails] = React.useState({
-    method: params.method ? params.method : "Bank",
+    method: params.method ? params.method : "Bank Transfer",
     amount: null,
     address: null,
   });
@@ -37,7 +37,7 @@ const Modalbankwithdraw = () => {
 
     setToastifyState({
       ...ToastifyState,
-      message: "Withdrawal Successful, an email has been sent to you.",
+      message: Withdrawal.message,
       variant: "success",
       open: true,
     });
@@ -82,9 +82,9 @@ const Modalbankwithdraw = () => {
             onChange={(e) => {
               navigate(`/withdraw/${e.target.value}`);
             }}
-            value={params.method ? params.method : "Bank"}
+            value={params.method ? params.method : "Bank Transfer"}
           >
-            <option value={"Bank"}>Bank</option>
+            <option value={"Bank Transfer"}>Bank Transfer</option>
             <option value={"Bitcoin"}>Bitcoin</option>
             <option value={"Luno"}>Luno</option>
             <option value={"Tether"}>Tether</option>

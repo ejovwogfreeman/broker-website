@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useReducer } from "react";
 import Background from "../components/Background";
 import "../css/General2.css";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -32,42 +32,29 @@ const Dashboard = () => {
   const location = useLocation();
 
   useEffect(async () => {
-    if (location.state && location.state === "reload") {
-      setLoading(true);
-      let reload = await getUser(UserState.token);
-      localStorage.removeItem("user");
-      setUserState({});
+    setLoading(true);
+    let user = await getUser(UserState.token);
 
-      if (reload.error) {
-        setLoading(false);
-        setToastifyState({
-          ...ToastifyState,
-          message: "An error occurred while retrieving user data",
-          variant: "error",
-          open: true,
-        });
-        return navigate("/login");
-      }
-
-      localStorage.setItem("user", JSON.stringify(reload));
-      setUserState(reload);
-
+    if (user.error) {
       setLoading(false);
-    }
-
-    let user = localStorage.getItem("user");
-    user = JSON.parse(user);
-
-    if (user) return setUserState(user);
-    console.log(location);
-
-    if (!UserState.username) {
+      setToastifyState({
+        ...ToastifyState,
+        message: user.message,
+        variant: "error",
+        open: true,
+      });
       return navigate("/login");
     }
-    if (!UserState.user) {
+    localStorage.setItem("user", JSON.stringify(user));
+    setUserState(user);
+
+    setLoading(false);
+    location.state = null;
+
+    if (!user.username) {
       return navigate("/login");
     }
-  }, [location]);
+  }, [location.state]);
 
   return (
     <>
@@ -122,10 +109,38 @@ const Dashboard = () => {
                     <div className="card">
                       <div className="card-head">
                         <FaRecycle className="icon" />
-                        <h5>${UserState?.withdrawal?.length}</h5>
+                        <h5>
+                          {investmentState.length}
+                          {/* $
+                          {withdrawalState && withdrawalState.length > 0
+                            ? withdrawalState.reduce(
+                                (a, b) => Number(a.amount) + Number(b.amount),
+                                0
+                              )
+                            : 0} */}
+                        </h5>
                       </div>
                       <div className="card-tail">
-                        <small>Total Withdraws</small>
+                        <small>Total no. of investments</small>
+                        <BsArrowRightCircleFill />
+                      </div>
+                    </div>
+                    <div className="card">
+                      <div className="card-head">
+                        <FaRecycle className="icon" />
+                        <h5>
+                          {withdrawalState.length}
+                          {/* $
+                          {withdrawalState && withdrawalState.length > 0
+                            ? withdrawalState.reduce(
+                                (a, b) => Number(a.amount) + Number(b.amount),
+                                0
+                              )
+                            : 0} */}
+                        </h5>
+                      </div>
+                      <div className="card-tail">
+                        <small>Total no. of Withdraws</small>
                         <BsArrowRightCircleFill />
                       </div>
                     </div>

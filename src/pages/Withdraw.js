@@ -33,7 +33,7 @@ const Withdraw = () => {
               <p>Charge - 0 + 0% USD</p>
               <p>Processing Time - 1 Day</p>
               <p className="last">
-                <Link to="/withdraw/Bank">Withdraw Now</Link>
+                <Link to="/withdraw/Bank Transfer">Withdraw Now</Link>
               </p>
             </div>
           </div>

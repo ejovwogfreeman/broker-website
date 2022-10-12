@@ -41,7 +41,7 @@
   .content
   .account-stats
   .card-show
-  .card:last-of-type {
+  .card:not(:first-of-type) {
   margin-left: 20px;
 }
 
@@ -302,7 +302,7 @@ table thead td {
     .content
     .account-stats
     .card-show
-    .card:last-of-type {
+    .card:not(:first-of-type) {
     margin-left: 0px;
     margin-top: 20px;
   }

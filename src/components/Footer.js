@@ -29,7 +29,7 @@ const Footer = () => {
       </div>
       <div className="sub">
         <p>
-          Copyright &copy; {year} financialfreedominvestment.com... All Rights
+          Copyright &copy; {year} financialfreedominvestment.co... All Rights
           Reserved.
         </p>
       </div>

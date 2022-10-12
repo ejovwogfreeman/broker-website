@@ -9,6 +9,7 @@ import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 import logo from "../assets/logo.png";
 import { UserContext } from "../context/UserContext";
 import Muinavbar from "./Muinavbar";
+import profilepic from "../assets/default.jpg";
 
 const Navbar = () => {
   const [UserState, setUserState] = React.useContext(UserContext);
@@ -51,7 +52,18 @@ const Navbar = () => {
         </div>
         <div className="acc">
           {UserState.username ? (
-            <Link to="/dashboard">{UserState.username}</Link>
+            <Link to="/dashboard">
+              <img
+                src={
+                  UserState.profileImage && UserState.profileImage.length > 0
+                    ? `http://localhost:8000/${UserState.profileImage[0].link}`
+                    : profilepic
+                }
+                height="40"
+                width="40"
+                style={{ borderRadius: "50%", objectFit: "cover" }}
+              />
+            </Link>
           ) : (
             <>
               <Link to="/login">
