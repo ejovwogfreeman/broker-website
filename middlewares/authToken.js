@@ -10,9 +10,9 @@ module.exports = (req, res, next) => {
 
   try {
     const verified = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = verified;
+    req.user = { ...verified.user, token };
     next();
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).json({ ...err, error: true });
   }
 };

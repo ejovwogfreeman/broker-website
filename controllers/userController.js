@@ -104,7 +104,13 @@ const getUsers = async (req, res) => {
 ///////////////////////////
 
 const getUser = async (req, res) => {
-  res.status(200).json(req.user.user);
+  let user = await User.findById(req.user._id);
+  // console.log(user);
+  const { ...others } = user._doc;
+  res.send({
+    ...others,
+    token: accessToken(user),
+  });
 };
 
 //////////////////////////
@@ -130,16 +136,18 @@ const accessToken = (user) => {
 
 const updateUser = async (req, res) => {
   // destructuring the email and password from the object
-  const { oldPassword, password, name, username } = req.body;
+  const { oldPassword, password, name, username, email, phoneNumber } =
+    req.body;
+
   if (password && oldPassword) {
-    const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user._id);
 
     // compare the password and send
     if (user && (await bcrypt.compare(oldPassword, user.password))) {
       // hash password
       const salt = await bcrypt.genSalt(10);
       const hashedpassword = await bcrypt.hash(password, salt);
-      await User.findByIdAndUpdate(req.user.id, { password: hashedpassword });
+      await User.findByIdAndUpdate(req.user._id, { password: hashedpassword });
       res.status(200).json({ message: "Password Changed Successfully" });
     } else {
       res
@@ -148,24 +156,36 @@ const updateUser = async (req, res) => {
     }
   }
 
-  if (name) {
-    await User.findByIdAndUpdate(req.user.id, { name: name });
-    res.status(200).json({ message: "Name Changed Successfully" });
+  if (req.files && req.files.length > 0) {
+    let filesArray = [];
+    req.files.forEach((element) => {
+      const file = {
+        fileName: element.originalname,
+        fileType: element.mimetype,
+        link: `file/${element.filename}`,
+      };
+      filesArray.push(file);
+    });
+    await User.findByIdAndUpdate(req.user._id, { profileImage: filesArray });
   }
 
-  if (username) {
-    await User.findByIdAndUpdate(req.user.id, { username: username });
-    res.status(200).json({ message: "Username Changed Successfully" });
+  if (name && name !== "null") {
+    await User.findByIdAndUpdate(req.user._id, { name: name });
   }
-};
 
-///////////////////////////////////
-//////////get transactions/////////
-///////////////////////////////////
+  if (username && username !== "null") {
+    await User.findByIdAndUpdate(req.user._id, { username: username });
+  }
 
-const getTransactions = async (req, res) => {
-  const transactions = await Transaction.find();
-  res.status(200).json(transactions);
+  if (email && email !== "null") {
+    await User.findByIdAndUpdate(req.user._id, { email: email });
+  }
+
+  if (phoneNumber && phoneNumber !== "null") {
+    await User.findByIdAndUpdate(req.user._id, { phoneNumber: phoneNumber });
+  }
+
+  res.status(200).json({ message: "Profile Updated Successfully" });
 };
 
 /////////////////////////////////////////
@@ -181,35 +201,16 @@ const getTransaction = async (req, res) => {
   res.status(200).send(usertrx);
 };
 
-///////////////////////////////////
-//////////get investments/////////
-///////////////////////////////////
-
-const getInvestments = async (req, res) => {
-  const investments = await Investment.find();
-  res.status(200).json(investments);
-};
-
 /////////////////////////////////////////
 //////////get single investment/////////
 /////////////////////////////////////////
 
 const getInvestment = async (req, res) => {
-  // res.status(200).json(req.user);
   const investment = await Investment.find();
   let userinv = investment.filter((trx) => {
     return trx.user.email === req.user.email;
   });
   res.status(200).send(userinv);
-};
-
-///////////////////////////////////
-//////////get deposits/////////
-///////////////////////////////////
-
-const getDeposits = async (req, res) => {
-  const deposits = await Deposit.find();
-  res.status(200).json(deposits);
 };
 
 /////////////////////////////////////////
@@ -223,15 +224,6 @@ const getDeposit = async (req, res) => {
     return trx.user.email === req.user.email;
   });
   res.status(200).send(userdep);
-};
-
-///////////////////////////////////
-//////////get withdrawals/////////
-///////////////////////////////////
-
-const getWithdrawals = async (req, res) => {
-  const withdrawals = await Withdrawal.find();
-  res.status(200).json(withdrawals);
 };
 
 /////////////////////////////////////////
@@ -253,53 +245,64 @@ const getWithdrawal = async (req, res) => {
 
 const userInvest = async (req, res) => {
   let { amount, plan } = req.body;
-  const { email, username, id } = req.user;
+  const { email, username, _id } = req.user;
   amount = Number(amount);
 
+  if (!amount)
+    return res
+      .status(400)
+      .json({ message: "Amount must not be left empty", error: true });
   if (plan.toLowerCase().includes("starter")) {
     if (amount < 300) {
-      return res
-        .status(400)
-        .json({ message: "The amount is smaller than the selected plan." });
+      return res.status(400).json({
+        message: "The amount is smaller than the selected plan.",
+        error: true,
+      });
     }
     if (amount > 75000) {
-      return res
-        .status(400)
-        .json({ message: "The amount is larger than the selected plan." });
+      return res.status(400).json({
+        message: "The amount is larger than the selected plan.",
+        error: true,
+      });
     }
   }
 
   if (plan.toLowerCase().includes("silver")) {
     if (amount < 75000) {
-      return res
-        .status(400)
-        .json({ message: "The amount is smaller than the selected plan." });
+      return res.status(400).json({
+        message: "The amount is smaller than the selected plan.",
+        error: true,
+      });
     }
     if (amount > 100000) {
-      return res
-        .status(400)
-        .json({ message: "The amount is larger than the selected plan." });
+      return res.status(400).json({
+        message: "The amount is larger than the selected plan.",
+        error: true,
+      });
     }
   }
 
   if (plan.toLowerCase().includes("gold")) {
     if (amount < 100000) {
-      return res
-        .status(400)
-        .json({ message: "The amount is smaller than the selected plan." });
+      return res.status(400).json({
+        message: "The amount is smaller than the selected plan.",
+        error: true,
+      });
     }
     if (amount > 1250000) {
-      return res
-        .status(400)
-        .json({ message: "The amount is larger than the selected plan." });
+      return res.status(400).json({
+        message: "The amount is larger than the selected plan.",
+        error: true,
+      });
     }
   }
 
-  let user = await User.findById(id);
+  let user = await User.findById(_id);
   let balance = user.balance;
   if (amount > balance || balance === 0)
     return res.status(400).json({
       message: "You don't have sufficient balance to make this investment",
+      error: true,
     });
 
   const investOptions = {
@@ -319,7 +322,7 @@ const userInvest = async (req, res) => {
     if (err) return res.status(400).json(err);
 
     investmentId = investment.id;
-    investment.user.id = id;
+    investment.user.id = _id;
     investment.user.email = email;
     investment.user.username = username;
 
@@ -328,11 +331,11 @@ const userInvest = async (req, res) => {
 
       transactionId = transaction.id;
       transaction.transaction = investment.id;
-      transaction.user.id = id;
+      transaction.user.id = _id;
       transaction.user.email = email;
       transaction.user.username = username;
 
-      User.findById(id, (err, user) => {
+      User.findById(_id, (err, user) => {
         if (err) return res.status(400).json(err);
 
         user.balance = user.balance - amount;
@@ -363,7 +366,7 @@ const userInvest = async (req, res) => {
 const userDeposit = async (req, res) => {
   // destructuring all information from the object
   const { amount, mode } = req.body;
-  const { email, username, id } = req.user;
+  const { email, username, _id } = req.user;
 
   // validate inputs
   if (!amount || !mode) {
@@ -401,7 +404,7 @@ const userDeposit = async (req, res) => {
       if (err) return res.status(400).json(err);
 
       depositId = deposit.id;
-      deposit.user.id = id;
+      deposit.user.id = _id;
       deposit.user.email = email;
       deposit.user.username = username;
 
@@ -410,11 +413,11 @@ const userDeposit = async (req, res) => {
 
         transactionId = transaction.id;
         transaction.transaction = depositId;
-        transaction.user.id = id;
+        transaction.user.id = _id;
         transaction.user.email = email;
         transaction.user.username = username;
 
-        User.findById(id, (err, user) => {
+        User.findById(_id, (err, user) => {
           if (err) return res.status(400).json(err);
 
           let deposits = user.deposits;
@@ -432,9 +435,9 @@ const userDeposit = async (req, res) => {
       deposit.save();
     });
 
-    res.status(201).send("Files Uploaded Successfully");
+    res.status(201).json({ message: "Files Uploaded Successfully" });
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(400).json({ message: error.message, error: true });
   }
 };
 
@@ -443,54 +446,57 @@ const userDeposit = async (req, res) => {
 /////////////////////////////
 
 const userWithdraw = async (req, res) => {
-  const { email, username, id } = req.user;
+  const { email, username, _id } = req.user;
 
-  let user = await User.findById(id);
-  console.log(user.balance);
-  let { amount } = req.body;
+  let user = await User.findById(_id);
+  let { amount, address, method } = req.body;
   amount = Number(amount);
 
   if (amount > user.balance || user.balance === 0) {
     return res
       .status(400)
-      .json({ message: "You do not have sufficient balance." });
+      .json({ message: "You do not have sufficient balance.", error: true });
   }
 
-  const withdraw = {
+  const withdrawOptions = {
     amount: amount,
+    accountDetails: address,
+    mode: method,
   };
 
   const transactionOptions = {
-    type: "withdraw",
+    type: "withdrawal",
     status: "pending",
   };
 
   let transactionId;
   let withdrawId;
 
-  withdraw.create(withdraw, (err, withdraw) => {
-    if (err) return res.status(400).json(err);
+  Withdrawal.create(withdrawOptions, (err, withdraw) => {
+    if (err) return res.status(400).json({ message: err.message, error: true });
 
     withdrawId = withdraw.id;
-    withdraw.user.id = id;
+    withdraw.user.id = _id;
     withdraw.user.email = email;
     withdraw.user.username = username;
 
     Transaction.create(transactionOptions, (err, transaction) => {
-      if (err) return res.status(400).json(err);
+      if (err)
+        return res.status(400).json({ message: err.message, error: true });
 
       transactionId = transaction.id;
       transaction.transaction = withdraw.id;
-      transaction.user.id = id;
+      transaction.user.id = _id;
       transaction.user.email = email;
       transaction.user.username = username;
 
-      User.findById(id, (err, user) => {
-        if (err) return res.status(400).json(err);
+      User.findById(_id, (err, user) => {
+        if (err)
+          return res.status(400).json({ message: err.message, error: true });
 
-        let withdraws = user.withdraws;
+        let withdraws = user.withdrawal;
         withdraws.push(withdrawId);
-        user.withdraws = withdraws;
+        user.withdrawal = withdraws;
 
         let transactions = user.transactions;
         transactions.push(transactionId);
@@ -557,11 +563,7 @@ module.exports = {
   forgotPasword,
   getUser,
   getTransaction,
-  getTransactions,
   getDeposit,
-  getDeposits,
   getWithdrawal,
-  getWithdrawals,
   getInvestment,
-  getInvestments,
 };

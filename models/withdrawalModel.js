@@ -19,6 +19,15 @@ const withdrawalSchema = new mongoose.Schema(
       default: null,
       enum: ["Bank Transfer", "Bitcoin", "Luno", "Tether"],
     },
+    accountDetails: {
+      type: String,
+      requied: true,
+    },
+    status: {
+      type: String,
+      default: "pending",
+      enum: ["pending", "processing", "confirmed", "failed", "declined"],
+    },
   },
   {
     timestamps: true,

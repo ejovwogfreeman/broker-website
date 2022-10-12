@@ -14,6 +14,7 @@ const multer = require("multer");
 const { GridFsStorage } = require("multer-gridfs-storage");
 const Grid = require("gridfs-stream");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
 let gfs, gridfsBucket;
 const conn = mongoose.connection;
@@ -21,8 +22,25 @@ const conn = mongoose.connection;
 const port = process.env.PORT || 5000;
 connectDB();
 
+conn.once("open", () => {
+  gridfsBucket = new mongoose.mongo.GridFSBucket(conn.db, {
+    bucketName: "photos",
+  });
+  // gfs = grid(conn.db, mongoose.mongo);
+  // gfs.collection("photos");
+  gfs = Grid(conn.db, mongoose.mongo);
+  gfs.collection("photos");
+});
+
 app.use(cors());
 app.use(express.json());
+app.use(
+  bodyParser.urlencoded({
+    limit: "50mb",
+    parameterLimit: 100000,
+    extended: true,
+  })
+);
 
 app.get("/file/:filename", async (req, res) => {
   try {

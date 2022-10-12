@@ -38,6 +38,7 @@ const UserSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    profileImage: [Object],
     transactions: [
       {
         type: mongoose.Schema.Types.ObjectId,

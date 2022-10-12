@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
 
   try {
     const verified = jwt.verify(token, process.env.JWT_SECRET);
-    if (!verified.isAdmin)
+    if (!verified.user.isAdmin)
       return res
         .status(400)
         .send("You are not authenticated to access this page");

@@ -14,13 +14,9 @@ const {
   userDeposit,
   userWithdraw,
   getTransaction,
-  getTransactions,
   getDeposit,
-  getDeposits,
   getWithdrawal,
-  getWithdrawals,
   getInvestment,
-  getInvestments,
 } = require("../controllers/userController");
 const {
   confirmDeposit,
@@ -29,6 +25,11 @@ const {
   processWithdraw,
   confirmWithdraw,
   declineWithdraw,
+  getTransactions,
+  getDeposits,
+  getWithdrawals,
+  getInvestments,
+  fundUser,
 } = require("../controllers/adminController");
 const { upload } = require("../config/file");
 
@@ -38,7 +39,7 @@ router.post("/reset-password", resetPassword);
 router.post("/forgot-password", forgotPasword);
 router.get("/", checkAdmin, getUsers);
 router.get("/user", verify, getUser);
-router.patch("/", verify, updateUser);
+router.patch("/update-user", verify, upload.array("files"), updateUser);
 router.post("/invest", verify, userInvest);
 router.post("/deposit", verify, upload.array("files"), userDeposit);
 router.post("/deposit/confirm", checkAdmin, confirmDeposit);
@@ -56,5 +57,6 @@ router.get("/withdrawal", verify, getWithdrawal);
 router.get("/withdrawals", checkAdmin, getWithdrawals);
 router.get("/investment", verify, getInvestment);
 router.get("/investments", checkAdmin, getInvestments);
+router.post("/funduser", checkAdmin, fundUser);
 
 module.exports = router;
