@@ -3,6 +3,7 @@ import cryp1 from "../assets/cryimg1.jpg";
 import cryp2 from "../assets/cryimg2.jpg";
 import cryp3 from "../assets/cryimg3.jpg";
 import cryp4 from "../assets/cryimg4.jpg";
+import cryp5 from "../assets/cryimg5.jpg";
 import logo from "../assets/logo.png";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -40,21 +41,25 @@ const Payment = () => {
               <img src={cryp2} alt="" />
               <img src={cryp3} alt="" />
               <img src={cryp4} alt="" />
+              <img src={cryp5} alt="" />
             </div>
             <div className="cryp">
               <img src={cryp2} alt="" />
               <img src={cryp3} alt="" />
               <img src={cryp4} alt="" />
+              <img src={cryp5} alt="" />
               <img src={cryp1} alt="" />
             </div>
             <div className="cryp">
               <img src={cryp3} alt="" />
               <img src={cryp4} alt="" />
+              <img src={cryp5} alt="" />
               <img src={cryp2} alt="" />
               <img src={cryp1} alt="" />
             </div>
             <div className="cryp">
               <img src={cryp4} alt="" />
+              <img src={cryp5} alt="" />
               <img src={cryp1} alt="" />
               <img src={cryp2} alt="" />
               <img src={cryp3} alt="" />

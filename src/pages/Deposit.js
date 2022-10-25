@@ -8,6 +8,7 @@ import cryp1 from "../assets/cryimg1.jpg";
 import cryp2 from "../assets/cryimg2.jpg";
 import cryp3 from "../assets/cryimg3.jpg";
 import cryp4 from "../assets/cryimg4.jpg";
+import cryp5 from "../assets/cryimg5.jpg";
 // import Modalbtcdeposit from '../components/Modalbtcdeposit'
 // import Modaltetherdeposit from '../components/Modaltetherdeposit'
 // import Modaletheriumdeposit from '../components/Modaletheriumdeposit'
@@ -56,6 +57,15 @@ const Withdraw = () => {
               <img src={cryp4} alt="" style={{ margin: "10px" }} width="90%" />
               <p className="last">
                 <Link to="/deposit/Luno">ADD FUND</Link>
+              </p>
+            </div>
+          </div>
+          <div className="plan-box">
+            <h3>VALR</h3>
+            <div>
+              <img src={cryp5} alt="" style={{ margin: "10px" }} width="90%" />
+              <p className="last">
+                <Link to="/deposit/Valr">ADD FUND</Link>
               </p>
             </div>
           </div>

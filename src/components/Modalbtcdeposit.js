@@ -61,14 +61,23 @@ const Modalbtcdeposit = () => {
   }, [params]);
 
   return (
-    <div className="modal-container">
+    <div
+      className="modal-container"
+      style={{
+        marginBottom: depositDetails.method === "Valr" ? "200px" : "5px",
+      }}
+    >
       <Link to="/deposit" className="nav-icon">
         <BsFillArrowLeftCircleFill />
       </Link>
       <div className="modal-box deposit">
         <h2>Deposit Using {depositDetails.method}</h2>
         <div>
-          <h3>Wallet Address</h3>
+          <h3>
+            {depositDetails.method === "Valr"
+              ? "Valr Details"
+              : "Wallet Address"}
+          </h3>
           <p>
             {depositDetails.method === "Bitcoin" && (
               <>3Nww1SGjVnrm4GFy2RHDxv3DZpNaYTrrbx</>
@@ -81,6 +90,16 @@ const Modalbtcdeposit = () => {
             )}
             {depositDetails.method === "Luno" && (
               <>3Nww1SGjVnrm4GFy2RHDxv3DZpNaYTrrbx</>
+            )}
+            {depositDetails.method === "Valr" && (
+              <p>
+                Recipient - VALR <br />
+                Account number - 001624849 <br /> Account type - Current /
+                Cheque <br />
+                Bank - Standard Bank <br />
+                Branch - 051001 <br />
+                Reference number - VRYX9A63NZ
+              </p>
             )}
           </p>
         </div>
@@ -111,6 +130,7 @@ const Modalbtcdeposit = () => {
             <option value={"Tether"}>Tether</option>
             <option value={"Etherium"}>Etherium</option>
             <option value={"Luno"}>Luno</option>
+            <option value={"Valr"}>Valr</option>
           </select>
           <br /> <br />
           <h3>Deposit Proof</h3>

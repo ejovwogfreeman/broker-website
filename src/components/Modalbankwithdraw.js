@@ -91,19 +91,29 @@ const Modalbankwithdraw = () => {
           </select>
           <br /> <br />
           <h3>
-            {withdrawDetails.method === "Bank"
-              ? "Account Number"
-              : "Wallet Address"}
+            {withdrawDetails.method === "Bank Transfer" && "Acount Details"}
+            {withdrawDetails.method === "Bitcoin" && "Wallet Details"}
+            {withdrawDetails.method === "Luno" && "Luno Details"}
+            {withdrawDetails.method === "Tether" && "Wallet Details"} <br />
           </h3>
+          <p>
+            {withdrawDetails.method === "Bank Transfer"
+              ? "(Your Account details should contain your account name, account number and bank name and should be comma separated...Withdrawals which do not comply to this would be declined.)"
+              : "(Your Wallet details should contain your wallet name and your wallet address and should be comma separated...Withdrawals which do not comply to this would be declined.)"}
+          </p>
           <div>
             <input
               type="text"
               required
               value={withdrawDetails.address}
               placeholder={
-                withdrawDetails.method === "Bank"
-                  ? "Account Number"
-                  : "Wallet Address"
+                withdrawDetails.method === "Bank Transfer"
+                  ? "Acount Details"
+                  : withdrawDetails.method === "Bitcoin"
+                  ? "Wallet Details"
+                  : withdrawDetails.method === "Luno"
+                  ? "Luno Details"
+                  : withdrawDetails.method === "Tether" && "Wallet Details"
               }
               onChange={(e) =>
                 setWithdrawDetails({
